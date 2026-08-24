@@ -24,25 +24,39 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = `mailto:111abhishek.04367@gmail.com?subject=${subject}&body=${body}`;
     });
 
-    const projectNameButtons = document.querySelectorAll(".project-name");
+    const projectButtons = document.querySelectorAll(".more-project-button");
+    const moreProjectsToggle = document.querySelector(".more-projects-toggle");
+    const moreProjectsContent = document.querySelector("#more-projects-content");
     const projectsModal = document.querySelector(".projects-modal");
     const modalClose = document.querySelector(".modal-close");
     const modalProjectImage = document.querySelector("#modal-project-image");
     const modalProjectLabel = document.querySelector("#modal-project-label");
     const modalProjectName = document.querySelector("#modal-project-name");
+    const modalProjectTitle = document.querySelector("#modal-project-title");
     const modalProjectStack = document.querySelector("#modal-project-stack");
     const modalProjectDescription = document.querySelector("#modal-project-description");
+    const modalProjectFeatures = document.querySelector("#modal-project-features");
     const modalProjectLink = document.querySelector("#modal-project-link");
+    let lastProjectButton = null;
 
     const projects = {
-        lahanhub: { label: "05 / Django · PostgreSQL · REST", name: "LahanHub", image: "assets/lahan01.png", description: "A multi-feature community platform combining local guides, hotel booking, e-commerce, posts, and real-time chat.", link: "https://hometownhub-fy2b.onrender.com/" },
-        mini: { label: "06 / Python · Machine Learning", name: "Mini Projects", image: "assets/small-project.png", description: "A collection of experiments including a YouTube chatbot, weather app, spam classifier, comment cleaner, and high-speed file sharing app.", link: "https://github.com/1abhishek0948" },
-        "digital-neuro": { label: "07 / Web application", name: "Digital Neuro", image: "assets/digital-neuro.png", description: "An experimental digital product exploring clear interfaces, responsive layouts, and structured content.", link: "https://github.com/1abhishek0948" },
-        experiments: { label: "08 / In progress", name: "New Experiments", image: "assets/under-const.png", description: "More ideas are currently being shaped into useful, production-ready experiences.", link: "https://github.com/1abhishek0948" }
+        "hometown-hub": { label: "05 / Next.js · TypeScript", name: "Hometown Hub", title: "Community & Local Information Platform", image: "assets/lahan01.png", description: "A modern community-focused web platform designed to bring local information, services, and experiences together through a clean and responsive interface.", features: ["Community", "Local information", "Responsive UI", "TypeScript", "Next.js"], link: "https://github.com/1abhishek0948/Hometown-HUb" },
+        "digital-neuro": { label: "06 / Python · AI/ML · Web Technologies", name: "Digital Neuro", title: "AI & Intelligent Digital Interaction", image: "assets/digital-neuro.png", description: "An AI-focused experimental project exploring intelligent digital interaction and machine-learning concepts through a web-based experience.", features: ["AI/ML", "Python", "Intelligent interaction", "Web technologies", "Experimentation"], link: "https://github.com/1abhishek0948" },
+        "universal-media-downloader": { label: "07 / Python · Flask · yt-dlp · Bootstrap", name: "Universal Media Downloader", title: "Web-Based Media Downloader", image: "assets/umd_hero.png", description: "A Flask-powered web application for downloading supported online videos and playlists through a simple, responsive interface.", features: ["Flask", "Python", "yt-dlp", "Video downloads", "Playlist support"], link: "https://github.com/1abhishek0948/Universal-Media-downloader" },
+        "blind-assistance-system": { label: "08 / Python · OpenCV · Raspberry Pi", name: "Blind Assistance System", title: "Real-Time Assistive Computer Vision System", image: "assets/blind-assist.png", description: "An assistive technology project designed to help visually impaired users understand their surroundings using computer vision, object detection, distance sensing, and voice feedback.", features: ["Object detection", "Distance detection", "OpenCV", "Voice alerts", "Raspberry Pi"], link: "https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" },
+        taleforge: { label: "09 / React · Django REST · PostgreSQL · OpenAI", name: "TaleForge", title: "Interactive Story Creation Platform", image: "assets/small-project.png", description: "An interactive storytelling application focused on creating dynamic narratives and branching story experiences with AI-powered storytelling capabilities.", features: ["Story creation", "Interactive narratives", "AI", "React", "PostgreSQL", "JWT"], link: "https://github.com/1abhishek0948/TaleForge-interactive-storytelling" }
     };
 
+    moreProjectsToggle?.addEventListener("click", () => {
+        const isExpanded = moreProjectsToggle.getAttribute("aria-expanded") === "true";
+        moreProjectsToggle.setAttribute("aria-expanded", String(!isExpanded));
+        moreProjectsToggle.querySelector("span").textContent = isExpanded ? "More Projects" : "Hide Projects";
+        moreProjectsToggle.querySelector("i").className = `fa-solid ${isExpanded ? "fa-plus" : "fa-minus"}`;
+        if (moreProjectsContent) moreProjectsContent.hidden = isExpanded;
+    });
+
     if (projectsModal && typeof projectsModal.showModal === "function") {
-        projectNameButtons.forEach((button) => {
+        projectButtons.forEach((button) => {
             button.addEventListener("click", () => {
                 const project = projects[button.dataset.project];
                 if (!project) return;
@@ -51,16 +65,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 modalProjectLabel.textContent = project.label;
                 modalProjectStack.textContent = project.label.split(" / ")[1];
                 modalProjectName.textContent = project.name;
+                modalProjectTitle.textContent = project.title;
                 modalProjectDescription.textContent = project.description;
+                modalProjectFeatures.replaceChildren(...project.features.map((feature) => {
+                    const featureElement = document.createElement("span");
+                    featureElement.textContent = feature;
+                    return featureElement;
+                }));
                 modalProjectLink.href = project.link;
+                lastProjectButton = button;
                 projectsModal.showModal();
             });
         });
-        modalClose?.addEventListener("click", () => projectsModal.close());
+        const closeProjectModal = () => {
+            projectsModal.close();
+        };
+        modalClose?.addEventListener("click", closeProjectModal);
+        projectsModal.addEventListener("close", () => lastProjectButton?.focus());
         projectsModal.addEventListener("click", (event) => {
-            if (event.target === projectsModal) {
-                projectsModal.close();
-            }
+            if (event.target === projectsModal) closeProjectModal();
         });
     }
 
