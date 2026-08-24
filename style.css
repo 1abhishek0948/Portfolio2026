@@ -59,7 +59,7 @@ body { background:#deded9; color:var(--ink); font-family:Inter, sans-serif; tran
 .technology-icons { display:flex; align-items:center; gap:9px; min-height:48px; margin-top:25px; }
 .technology-icons img { width:36px; height:36px; object-fit:contain; }
 .technology-group h3 { margin-top:20px; font-size:clamp(16px,1.5vw,20px); line-height:1.45; font-weight:600; }
-.experience-section { background:var(--surface); padding-top:clamp(35px,5vw,72px); }
+.experience-section { background:var(--surface); padding-top:clamp(35px,5vw,72px); padding-bottom:clamp(35px,5vw,72px); }
 .experience-item { display:grid; grid-template-columns:1fr 1fr; gap:55px; padding:31px 0; border-top:1px solid var(--line); }
 .experience-item h3 { margin-top:13px; font-size:24px; }
 .experience-item p { color:var(--muted); font-size:13px; line-height:1.7; }
@@ -70,6 +70,8 @@ body { background:#deded9; color:var(--ink); font-family:Inter, sans-serif; tran
 .education-row p b { color:var(--ink); font-weight:600; }
 .education-row small { display:inline-block; max-width:480px; margin-top:5px; font-size:12px; line-height:1.6; }
 .projects-section { background:var(--surface); }
+.projects-section > h2 { color:var(--accent); }
+.projects-heading-word { color:var(--ink); }
 .project-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; max-width:1120px; }
 .project-card { background:var(--paper); overflow:hidden; position:relative; }
 .project-card img { width:100%; height:clamp(180px,20vw,300px); aspect-ratio:auto; display:block; object-fit:contain; background:var(--soft); transition:transform .45s; }
@@ -181,7 +183,7 @@ body { background:#deded9; color:var(--ink); font-family:Inter, sans-serif; tran
   .technology-icons img { width:29px; height:29px; }
   .technology-group h3 { margin-top:15px; font-size:16px; }
   .experience-item, .education-row { display:block; padding:25px 0; }
-  .experience-section { padding-top:31px; }
+  .experience-section { padding-top:31px; padding-bottom:31px; }
   .experience-item > p { margin-top:18px; }
   .education-row strong, .education-row p { display:block; margin-top:11px; }
   .project-grid { display:block; }
@@ -240,7 +242,7 @@ body { background:#deded9; color:var(--ink); font-family:Inter, sans-serif; tran
   .developer-section { min-height:150px; }
   .marquee-track span { font-size:clamp(58px, 9vw, 100px); letter-spacing:-4px; }
   .content-section { padding:72px 40px; }
-  .experience-section { padding-top:36px; }
+  .experience-section { padding-top:36px; padding-bottom:36px; }
   .technology-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); margin-top:40px; }
   .capabilities-section { padding-bottom:36px; }
   .technology-group { min-height:195px; }
