@@ -1,416 +1,923 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Abhishek Thakur | Full Stack Developer Portfolio</title>
-    <meta name="description" content="Portfolio of Abhishek Thakur, a Full Stack and Python Developer from Nepal building Django, React, REST API, PostgreSQL, and AI-powered web applications.">
-    <meta name="author" content="Abhishek Thakur">
-    <meta name="creator" content="Abhishek Thakur">
-    <meta name="publisher" content="Abhishek Thakur">
-    <meta name="application-name" content="Abhishek Portfolio">
-    <meta http-equiv="content-language" content="en">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="theme-color" content="#f5f5f2">
-    <meta name="google-site-verification" content="Nfp1oEz3FJVaW1uiN6Ki9gH-dCNuW8at-ZwzaRzhIsI">
-    <meta name="msvalidate.01" content="77BAAC352B2B31F2B31E10F11E323998">
-    <link rel="canonical" href="https://devabhishek.onrender.com/">
-    <link rel="alternate" hreflang="en" href="https://devabhishek.onrender.com/">
-    <link rel="alternate" hreflang="x-default" href="https://devabhishek.onrender.com/">
-    <link rel="icon" type="image/png" href="assets/abhishek_thakur_logo.png">
-    <link rel="apple-touch-icon" href="assets/abhishek_thakur_logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap">
+    <meta
+      name="description"
+      content="Portfolio of Abhishek Thakur, a Full Stack and Python Developer from Nepal building Django, React, REST API, PostgreSQL, and AI-powered web applications."
+    />
+    <meta name="author" content="Abhishek Thakur" />
+    <meta name="creator" content="Abhishek Thakur" />
+    <meta name="publisher" content="Abhishek Thakur" />
+    <meta name="application-name" content="Abhishek Portfolio" />
+    <meta http-equiv="content-language" content="en" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="bingbot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="theme-color" content="#f5f5f2" />
+    <meta
+      name="google-site-verification"
+      content="Nfp1oEz3FJVaW1uiN6Ki9gH-dCNuW8at-ZwzaRzhIsI"
+    />
+    <meta name="msvalidate.01" content="77BAAC352B2B31F2B31E10F11E323998" />
+    <link rel="canonical" href="https://devabhishek.onrender.com/" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://devabhishek.onrender.com/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://devabhishek.onrender.com/"
+    />
+    <link rel="icon" type="image/png" href="assets/abhishek_thakur_logo.png" />
+    <link rel="apple-touch-icon" href="assets/abhishek_thakur_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    />
 
     <!-- Font Awesome -->
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-    <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Abhishek Thakur Portfolio">
-    <meta property="og:title" content="Abhishek Thakur | Full Stack Developer Portfolio">
-    <meta property="og:description" content="Explore projects in full-stack web development, Python, Django, React, REST APIs, and machine learning built by Abhishek Thakur.">
-    <meta property="og:url" content="https://devabhishek.onrender.com/">
-    <meta property="og:image" content="https://devabhishek.onrender.com/assets/Abhishek%20Photo.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="Portrait of Abhishek Thakur">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Abhishek Thakur | Full Stack Developer Portfolio">
-    <meta name="twitter:description" content="Explore projects in full-stack web development, Python, Django, React, REST APIs, and machine learning built by Abhishek Thakur.">
-    <meta name="twitter:url" content="https://devabhishek.onrender.com/">
-    <meta name="twitter:image" content="https://devabhishek.onrender.com/assets/Abhishek%20Photo.png">
-    <meta name="twitter:image:alt" content="Portrait of Abhishek Thakur">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Abhishek Thakur Portfolio" />
+    <meta
+      property="og:title"
+      content="Abhishek Thakur | Full Stack Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore projects in full-stack web development, Python, Django, React, REST APIs, and machine learning built by Abhishek Thakur."
+    />
+    <meta property="og:url" content="https://devabhishek.onrender.com/" />
+    <meta
+      property="og:image"
+      content="https://devabhishek.onrender.com/assets/Abhishek%20Photo.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Portrait of Abhishek Thakur" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Abhishek Thakur | Full Stack Developer Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore projects in full-stack web development, Python, Django, React, REST APIs, and machine learning built by Abhishek Thakur."
+    />
+    <meta name="twitter:url" content="https://devabhishek.onrender.com/" />
+    <meta
+      name="twitter:image"
+      content="https://devabhishek.onrender.com/assets/Abhishek%20Photo.png"
+    />
+    <meta name="twitter:image:alt" content="Portrait of Abhishek Thakur" />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://devabhishek.onrender.com/#website",
-          "url": "https://devabhishek.onrender.com/",
-          "name": "Abhishek Thakur Portfolio",
-          "description": "Portfolio of Abhishek Thakur, a Full Stack Developer and Python Developer.",
-          "inLanguage": "en"
-        },
-        {
-          "@type": "Person",
-          "@id": "https://devabhishek.onrender.com/#person",
-          "name": "Abhishek Thakur",
-          "url": "https://devabhishek.onrender.com/",
-          "image": "https://devabhishek.onrender.com/assets/abhishek1.jpeg",
-          "jobTitle": "Full Stack Developer",
-          "description": "Full Stack Developer and Python Developer building Django, React, REST API, PostgreSQL, and machine learning projects.",
-          "email": "mailto:111abhishek.04367@gmail.com",
-          "sameAs": [
-            "https://github.com/1abhishek0948",
-            "https://www.linkedin.com/in/abhishek0948/",
-            "https://www.instagram.com/1abhishek0948/"
-          ],
-          "knowsAbout": [
-            "Full Stack Web Development",
-            "Python",
-            "Django",
-            "Flask",
-            "React",
-            "JavaScript",
-            "REST APIs",
-            "PostgreSQL",
-            "MongoDB",
-            "Machine Learning",
-            "OpenCV",
-            "Responsive Web Design"
-          ]
-        }
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://devabhishek.onrender.com/#website",
+            "url": "https://devabhishek.onrender.com/",
+            "name": "Abhishek Thakur Portfolio",
+            "description": "Portfolio of Abhishek Thakur, a Full Stack Developer and Python Developer.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://devabhishek.onrender.com/#person",
+            "name": "Abhishek Thakur",
+            "url": "https://devabhishek.onrender.com/",
+            "image": "https://devabhishek.onrender.com/assets/abhishek1.jpeg",
+            "jobTitle": "Full Stack Developer",
+            "description": "Full Stack Developer and Python Developer building Django, React, REST API, PostgreSQL, and machine learning projects.",
+            "email": "mailto:111abhishek.04367@gmail.com",
+            "sameAs": [
+              "https://github.com/1abhishek0948",
+              "https://www.linkedin.com/in/abhishek0948/",
+              "https://www.instagram.com/1abhishek0948/"
+            ],
+            "knowsAbout": [
+              "Full Stack Web Development",
+              "Python",
+              "Django",
+              "Flask",
+              "React",
+              "JavaScript",
+              "REST APIs",
+              "PostgreSQL",
+              "MongoDB",
+              "Machine Learning",
+              "OpenCV",
+              "Responsive Web Design"
+            ]
+          }
+        ]
+      }
     </script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <main class="app" id="main-content">
+      <!-- Top status area -->
+      <div class="status-bar">
+        <time class="time" id="device-time">--:--</time>
 
-        <!-- Top status area -->
-        <div class="status-bar">
-            <time class="time" id="device-time">--:--</time>
+        <div class="status-icons" aria-hidden="true">
+          <i class="fa-solid fa-signal" id="network-status"></i>
+          <i class="fa-solid fa-wifi" id="connection-status"></i>
+          <i class="fa-solid fa-battery-full" id="battery-status"></i>
+        </div>
+      </div>
 
-            <div class="status-icons" aria-hidden="true">
-                <i class="fa-solid fa-signal" id="network-status"></i>
-                <i class="fa-solid fa-wifi" id="connection-status"></i>
-                <i class="fa-solid fa-battery-full" id="battery-status"></i>
-            </div>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+      >
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <!-- Profile Section -->
+      <section class="hero" id="home">
+        <a class="hero-logo" href="#home" aria-label="Abhishek Thakur home">
+          <img
+            src="assets/abhishek_thakur_logo.png"
+            alt="Abhishek Thakur"
+            width="152"
+            height="100"
+          />
+        </a>
+
+        <!-- Profile image -->
+        <div class="profile-wrapper">
+          <!-- <div class="profile-bg"></div> -->
+
+          <img
+            src="assets/abhishek1.jpeg"
+            alt="Portrait of Abhishek Thakur"
+            class="profile-image"
+            width="395"
+            height="395"
+            fetchpriority="high"
+          />
         </div>
 
-        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        <h1>Abhishek Thakur</h1>
+
+        <h2>
+          Full Stack Developer &amp; Python Developer<br /><span
+            class="hero-stack"
+            >Django · React · PostgreSQL · REST APIs</span
+          >
+        </h2>
+
+        <div class="hero-copy-stack">
+          <p class="intro">
+            I design, build, and deploy user-focused web applications with
+            Python, Django, React, PostgreSQL, and REST APIs. I enjoy taking
+            products from a rough idea to a reliable, working experience.
+          </p>
+
+          <!-- CV button -->
+          <a
+            class="cv-button"
+            href="assets/Abhishek_Thakur_Resume_.pdf"
+            download
+          >
+            Download resume <i class="fa-solid fa-download"></i>
+          </a>
+
+          <div class="hero-traits" aria-label="Professional qualities">
+            <span>Creative</span><span>|</span><span>Reliable</span
+            ><span>|</span><span>Efficient</span><span>|</span
+            ><span>Detail-Oriented</span>
+          </div>
+        </div>
+
+        <!-- Social links -->
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/in/abhishek0948/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/1abhishek0948/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/1abhishek0948"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Developer section -->
+      <section class="developer-section" aria-label="Developer statement">
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Full Stack Developer</span>
+            <span>Full Stack Developer</span>
+            <span>Full Stack Developer</span>
+            <span>Full Stack Developer</span>
+          </div>
+        </div>
+        <span class="sr-only">Full Stack Developer</span>
+      </section>
+
+      <!-- Extra sections -->
+      <section class="content-section about-section" id="about">
+        <div class="section-label">01 / About</div>
+        <h2>Building useful things<br /><em>for the web.</em></h2>
+
+        <p>
+          I&apos;m a Full Stack Developer and Python Developer from Lahan,
+          Nepal, currently studying Computer Science and Engineering at Parul
+          University. I build responsive interfaces, backend systems,
+          authentication flows, and REST APIs with Django and React, with
+          additional experience across the MERN stack and applied machine
+          learning.
+        </p>
+        <div class="about-stats">
+          <div><strong>10+</strong><span>Apps built</span></div>
+          <div><strong>2</strong><span>Internships</span></div>
+          <div><strong>7.05</strong><span>Current CGPA</span></div>
+        </div>
+      </section>
+
+      <section class="content-section capabilities-section" id="capabilities">
+        <div class="section-label">02 / Capabilities</div>
+        <h2>The tools behind<br /><em>the work.</em></h2>
+        <div class="technology-grid">
+          <div class="technology-group">
+            <span>01 / Languages</span>
+            <div class="technology-icons" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/color/48/python--v1.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/javascript--v1.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/c-programming.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h3>Python<br />JavaScript<br />C</h3>
+          </div>
+          <div class="technology-group">
+            <span>02 / Backend</span>
+            <div class="technology-icons" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/color/48/django.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/flask.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/nodejs.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h3>Django<br />Flask<br />Node.js · Express</h3>
+          </div>
+          <div class="technology-group">
+            <span>03 / Frontend</span>
+            <div class="technology-icons" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/color/48/react-native.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/html-5--v1.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/css3.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h3>React.js<br />HTML · CSS<br />Tailwind · Bootstrap</h3>
+          </div>
+          <div class="technology-group">
+            <span>04 / Data + tools</span>
+            <div class="technology-icons" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/color/48/postgreesql.png"
+                alt="PostgreSQL"
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/mongodb.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/git.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="https://img.icons8.com/color/48/docker.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h3>PostgreSQL · MySQL<br />MongoDB<br />Git · Docker · Render</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section experience-section" id="experience">
+        <div class="section-label">03 / Experience</div>
+        <div class="experience-item">
+          <div>
+            <span>Feb 2026 - Apr 2026</span>
+            <h3>Full Stack Developer Intern</h3>
+            <p>Unified Mentor · Remote</p>
+          </div>
+          <p>
+            Built AI Web Doctor, an AI storytelling platform using React,
+            Django, and PostgreSQL. Designed story-flow data models, session
+            state, REST logic, and dynamic story rendering.
+          </p>
+        </div>
+        <div class="experience-item">
+          <div>
+            <span>2025</span>
+            <h3>Web Development Intern</h3>
+            <p>Prodigy InfoTech</p>
+          </div>
+          <p>
+            Built responsive web pages with HTML, CSS, JavaScript, and Bootstrap
+            while collaborating through Git and GitHub.
+          </p>
+        </div>
+        <div class="education-row">
+          <div>
+            <span>Education</span
+            ><strong>B.Tech, Computer Science &amp; Engineering</strong>
+          </div>
+          <p>
+            <b>Parul University</b><br />2022 - 2026 · CGPA 7.05 / 10<br /><small
+              >Studying software engineering, data structures, databases, web
+              development, and machine learning fundamentals.</small
+            >
+          </p>
+        </div>
+        <div class="education-row">
+          <div><span>Higher Secondary</span><strong>+2 Science</strong></div>
+          <p>
+            <b>Little Star Higher Secondary English School, Lahan</b><br />2020
+            - 2022 · 74%<br /><small
+              >Studied physics, chemistry, mathematics, computer science, and
+              English.</small
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section projects-section" id="projects">
+        <div class="section-label">04 / Featured projects</div>
+        <h2>Featured <span class="projects-heading-word">Projects</span></h2>
+
+        <div class="project-grid">
+          <article class="project-card featured-project">
+            <img
+              src="assets/LAHAN project.png"
+              alt="Lahan digital city ecosystem interface"
+              width="760"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <span>01 / Django · Python · PostgreSQL · Docker</span>
+              <h3>Lahan</h3>
+              <h4>Full-Stack Digital City Ecosystem</h4>
+              <p>
+                My largest full-stack project: 21 interconnected applications
+                bringing local services, businesses, community features,
+                information, and everyday utilities into one platform.
+              </p>
+              <div class="project-tags" aria-label="Lahan key features">
+                <span>21 Apps</span><span>Marketplace</span><span>Jobs</span
+                ><span>Community</span><span>Weather</span
+                ><span>Notifications</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://nepcity.onrender.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Live project
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i></a
+                ><span class="private-repository"
+                  ><i class="fa-solid fa-lock"></i> Private repository</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="assets/ai_web_doctor project.png"
+              alt="AI Web Doctor website testing interface"
+              width="760"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <span>02 / Python · Django · Playwright · AI</span>
+              <h3>AI Web Doctor</h3>
+              <h4>AI-Powered Website Testing &amp; Debugging</h4>
+              <p>
+                Scans websites in a real browser for responsive, accessibility,
+                layout, typography, UX, and performance issues, then generates
+                fixes and verifies them.
+              </p>
+              <div class="project-tags">
+                <span>Browser Testing</span><span>UI Health Score</span
+                ><span>AI Debugging</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://ai-web-doctor.onrender.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Live
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i></a
+                ><a
+                  href="https://github.com/1abhishek0948/Ai-Web-Doctor"
+                  target="_blank"
+                  rel="noreferrer"
+                  >GitHub <i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="assets/lafzloom project.png"
+              alt="Lafzloom multilingual poetry platform interface"
+              width="760"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <span>03 / Django · PostgreSQL · Tailwind · JWT</span>
+              <h3>Lafzloom</h3>
+              <h4>Multilingual Poetry &amp; Shayari Platform</h4>
+              <p>
+                A full-stack platform for discovering, writing, translating,
+                saving, and sharing poetry with search, moderation, REST APIs,
+                and multilingual support.
+              </p>
+              <div class="project-tags">
+                <span>Poetry</span><span>REST API</span><span>Moderation</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://lafzloom.onrender.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Live
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i></a
+                ><a
+                  href="https://github.com/1abhishek0948/lafzloom"
+                  target="_blank"
+                  rel="noreferrer"
+                  >GitHub <i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="more-projects">
+          <button
+            class="more-projects-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="more-projects-content"
+          >
+            <span>More Projects</span
+            ><i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          <div class="more-projects-content" id="more-projects-content" hidden>
+            <div class="more-projects-grid">
+              <button
+                class="more-project-button"
+                type="button"
+                data-project="hometown-hub"
+                aria-haspopup="dialog"
+                aria-controls="project-details-modal"
+              >
+                <span>05 / Next.js · TypeScript</span>
+                <h3>Hometown Hub</h3>
+                <p>
+                  Community and local information platform with a responsive
+                  interface.
+                </p>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </button>
+              <button
+                class="more-project-button"
+                type="button"
+                data-project="digital-neuro"
+                aria-haspopup="dialog"
+                aria-controls="project-details-modal"
+              >
+                <span>06 / Python · AI/ML · Web Technologies</span>
+                <h3>Digital Neuro</h3>
+                <p>
+                  Experiment exploring AI-driven intelligent digital
+                  interaction.
+                </p>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </button>
+              <button
+                class="more-project-button"
+                type="button"
+                data-project="universal-media-downloader"
+                aria-haspopup="dialog"
+                aria-controls="project-details-modal"
+              >
+                <span>07 / Python · Flask · yt-dlp · Bootstrap</span>
+                <h3>Universal Media Downloader</h3>
+                <p>
+                  Web-based video and playlist downloader with a responsive
+                  interface.
+                </p>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </button>
+              <button
+                class="more-project-button"
+                type="button"
+                data-project="blind-assistance-system"
+                aria-haspopup="dialog"
+                aria-controls="project-details-modal"
+              >
+                <span>08 / Python · OpenCV · Raspberry Pi</span>
+                <h3>Blind Assistance System</h3>
+                <p>
+                  Real-time assistive computer vision with distance sensing and
+                  voice alerts.
+                </p>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </button>
+              <button
+                class="more-project-button"
+                type="button"
+                data-project="taleforge"
+                aria-haspopup="dialog"
+                aria-controls="project-details-modal"
+              >
+                <span>09 / React · Django REST · OpenAI</span>
+                <h3>TaleForge</h3>
+                <p>
+                  AI-powered interactive storytelling with dynamic narratives
+                  and branching experiences.
+                </p>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </button>
+              <article>
+                <span>10 / TypeScript</span>
+                <h3>Co-Living Platform</h3>
+                <p>
+                  A modern concept for discovering and exploring co-living
+                  opportunities through an intuitive digital interface.
+                </p>
+                <a
+                  href="https://github.com/1abhishek0948"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View Co-Living Platform projects on GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </article>
+              <article>
+                <span>11 / HTML · CSS · JavaScript</span>
+                <h3>Impress Crush</h3>
+                <p>
+                  A creative frontend project built around animation, playful
+                  interactions, and engaging visual experiences.
+                </p>
+                <a
+                  href="https://github.com/1abhishek0948"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View Impress Crush on GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </article>
+              <article>
+                <span>12 / HTML · CSS · JavaScript</span>
+                <h3>HappyBirthday</h3>
+                <p>
+                  A personalized webpage featuring interactive elements,
+                  animations, and visual effects.
+                </p>
+                <a
+                  href="https://github.com/1abhishek0948"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View HappyBirthday on GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </article>
+              <article>
+                <span>13 / HTML · CSS · JavaScript</span>
+                <h3>Portfolio Projects</h3>
+                <p>
+                  Multiple experiments exploring responsive layouts, modern UI,
+                  animation, interaction, and personal branding.
+                </p>
+                <a
+                  href="https://github.com/1abhishek0948"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View portfolio projects on GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <dialog
+          class="projects-modal"
+          id="project-details-modal"
+          aria-labelledby="project-details-title"
+        >
+          <div class="modal-header">
+            <div>
+              <span class="section-label" id="modal-project-label"
+                >More project</span
+              >
+              <h2 id="project-details-title">Project details</h2>
+            </div>
+            <button
+              class="modal-close"
+              type="button"
+              aria-label="Close project details"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <article class="modal-project">
+            <img
+              id="modal-project-image"
+              src="assets/umd_hero.png"
+              alt=""
+              width="760"
+              height="400"
+              decoding="async"
+            />
+            <div>
+              <span id="modal-project-stack">Project stack</span>
+              <h3 id="modal-project-name">Universal Media Downloader</h3>
+              <h4 id="modal-project-title">Web-Based Media Downloader</h4>
+              <p id="modal-project-description"></p>
+              <div id="modal-project-features" class="project-tags"></div>
+              <a
+                id="modal-project-link"
+                href="https://github.com/1abhishek0948"
+                target="_blank"
+                rel="noreferrer"
+                >View on GitHub <i class="fa-brands fa-github"></i
+              ></a>
+            </div>
+          </article>
+        </dialog>
+
+        <div class="experiments-callout">
+          <div>
+            <span>Other experiments</span>
+            <h3>Always exploring.<br />Always building.</h3>
+          </div>
+          <div>
+            <p>
+              A growing collection of smaller projects across Python, Django,
+              Flask, React, TypeScript, AI/ML, computer vision, automation,
+              APIs, UI/UX, and web development.
+            </p>
+            <a
+              href="https://github.com/1abhishek0948"
+              target="_blank"
+              rel="noreferrer"
+              >Explore GitHub
+              <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section contact-section" id="contact">
+        <div class="contact-copy">
+          <div class="section-label">05 / Contact</div>
+          <h2>Have an idea?<br /><em>Let&apos;s make it real.</em></h2>
+          <p>
+            Tell me a little about what you&apos;re building and I&apos;ll get
+            back to you shortly.
+          </p>
+          <a class="contact-link" href="mailto:111abhishek.04367@gmail.com"
+            >111abhishek.04367@gmail.com
+            <i class="fa-solid fa-arrow-up-right-from-square"></i
+          ></a>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <label>
+              <span>Your name</span>
+              <input
+                type="text"
+                name="name"
+                autocomplete="name"
+                required
+                placeholder="Abhishek Thakur"
+              />
+            </label>
+            <label>
+              <span>Your email</span>
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+                placeholder="you@example.com"
+              />
+            </label>
+          </div>
+          <label>
+            <span>Tell me about your project</span>
+            <textarea
+              name="message"
+              rows="5"
+              required
+              placeholder="What are you building?"
+            ></textarea>
+          </label>
+          <div class="form-footer">
+            <button class="form-submit" type="submit">
+              Send message
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+            <span class="form-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+
+      <footer class="site-footer">
+        <span>&copy; 2026 Abhishek Thakur</span>
+        <a href="#home"
+          >Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i
+        ></a>
+      </footer>
+
+      <!-- Floating Bottom Navigation -->
+      <nav class="bottom-nav" aria-label="Primary navigation">
+        <button
+          class="nav-item active"
+          data-target="home"
+          aria-label="Home"
+          aria-current="page"
+        >
+          <i class="fa-solid fa-house"></i>
         </button>
 
-        <!-- Profile Section -->
-        <section class="hero" id="home">
-            <a class="hero-logo" href="#home" aria-label="Abhishek Thakur home">
-                    <img src="assets/abhishek_thakur_logo.png" alt="Abhishek Thakur" width="152" height="100">
-            </a>
+        <button class="nav-item" data-target="about" aria-label="About">
+          <i class="fa-regular fa-user"></i>
+        </button>
 
-            <!-- Profile image -->
-            <div class="profile-wrapper">
-                <!-- <div class="profile-bg"></div> -->
+        <button class="nav-item" data-target="projects" aria-label="Projects">
+          <i class="fa-regular fa-file-lines"></i>
+        </button>
 
-                <img
-                    src="assets/abhishek1.jpeg"
-                    alt="Portrait of Abhishek Thakur"
-                    class="profile-image"
-                    width="395"
-                    height="395"
-                    fetchpriority="high"
-                >
-            </div>
+        <button
+          class="nav-item"
+          data-target="capabilities"
+          aria-label="Capabilities"
+        >
+          <i class="fa-solid fa-shield-halved"></i>
+        </button>
 
-            <h1>Abhishek Thakur</h1>
-
-            <h2>Full Stack Developer &amp; Python Developer<br><span class="hero-stack">Django · React · PostgreSQL · REST APIs</span></h2>
-
-            <div class="hero-copy-stack">
-                <p class="intro">
-                I design, build, and deploy user-focused web applications with Python, Django, React, PostgreSQL, and REST APIs. I enjoy taking products from a rough idea to a reliable, working experience.
-                </p>
-
-                <!-- CV button -->
-                <a
-                    class="cv-button"
-                    href="assets/Abhishek_Thakur_Resume_.pdf"
-                    download
-                >
-                    Download resume <i class="fa-solid fa-download"></i>
-                </a>
-
-                <div class="hero-traits" aria-label="Professional qualities">
-                    <span>Creative</span><span>|</span><span>Reliable</span><span>|</span><span>Efficient</span><span>|</span><span>Detail-Oriented</span>
-                </div>
-            </div>
-
-            <!-- Social links -->
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/abhishek0948/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/1abhishek0948/" target="_blank" rel="noreferrer" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://github.com/1abhishek0948" target="_blank" rel="noreferrer" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </div>
-
-        </section>
-
-
-        <!-- Developer section -->
-        <section class="developer-section" aria-label="Developer statement">
-            <div class="marquee" aria-hidden="true">
-                <div class="marquee-track">
-                    <span>Full Stack Developer</span>
-                    <span>Full Stack Developer</span>
-                    <span>Full Stack Developer</span>
-                    <span>Full Stack Developer</span>
-                </div>
-            </div>
-            <span class="sr-only">Full Stack Developer</span>
-
-        </section>
-
-
-        <!-- Extra sections -->
-        <section class="content-section about-section" id="about">
-            <div class="section-label">01 / About</div>
-            <h2>Building useful things<br><em>for the web.</em></h2>
-
-            <p>
-                I&apos;m a Full Stack Developer and Python Developer from Lahan, Nepal, currently studying Computer Science and Engineering at Parul University. I build responsive interfaces, backend systems, authentication flows, and REST APIs with Django and React, with additional experience across the MERN stack and applied machine learning.
-            </p>
-            <div class="about-stats"><div><strong>10+</strong><span>Apps built</span></div><div><strong>2</strong><span>Internships</span></div><div><strong>7.05</strong><span>Current CGPA</span></div></div>
-        </section>
-
-        <section class="content-section capabilities-section" id="capabilities">
-            <div class="section-label">02 / Capabilities</div>
-            <h2>The tools behind<br><em>the work.</em></h2>
-            <div class="technology-grid">
-                <div class="technology-group">
-                    <span>01 / Languages</span>
-                    <div class="technology-icons" aria-hidden="true">
-                        <img src="https://img.icons8.com/color/48/python--v1.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/javascript--v1.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/c-programming.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                    </div>
-                    <h3>Python<br>JavaScript<br>C</h3>
-                </div>
-                <div class="technology-group">
-                    <span>02 / Backend</span>
-                    <div class="technology-icons" aria-hidden="true">
-                        <img src="https://img.icons8.com/color/48/django.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/flask.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/nodejs.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                    </div>
-                    <h3>Django<br>Flask<br>Node.js · Express</h3>
-                </div>
-                <div class="technology-group">
-                    <span>03 / Frontend</span>
-                    <div class="technology-icons" aria-hidden="true">
-                        <img src="https://img.icons8.com/color/48/react-native.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/html-5--v1.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/css3.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                    </div>
-                    <h3>React.js<br>HTML · CSS<br>Tailwind · Bootstrap</h3>
-                </div>
-                <div class="technology-group">
-                    <span>04 / Data + tools</span>
-                    <div class="technology-icons" aria-hidden="true">
-                        <img src="https://img.icons8.com/color/48/postgreesql.png" alt="PostgreSQL" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/mongodb.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/git.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                        <img src="https://img.icons8.com/color/48/docker.png" alt="" width="36" height="36" loading="lazy" decoding="async">
-                    </div>
-                    <h3>PostgreSQL · MySQL<br>MongoDB<br>Git · Docker · Render</h3>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section experience-section" id="experience">
-            <div class="section-label">03 / Experience</div>
-            <div class="experience-item"><div><span>Feb 2026 - Apr 2026</span><h3>Full Stack Developer Intern</h3><p>Unified Mentor · Remote</p></div><p>Built AI Web Doctor, an AI storytelling platform using React, Django, and PostgreSQL. Designed story-flow data models, session state, REST logic, and dynamic story rendering.</p></div>
-            <div class="experience-item"><div><span>2025</span><h3>Web Development Intern</h3><p>Prodigy InfoTech</p></div><p>Built responsive web pages with HTML, CSS, JavaScript, and Bootstrap while collaborating through Git and GitHub.</p></div>
-            <div class="education-row">
-                <div><span>Education</span><strong>B.Tech, Computer Science &amp; Engineering</strong></div>
-                <p><b>Parul University</b><br>2022 - 2026 · CGPA 7.05 / 10<br><small>Studying software engineering, data structures, databases, web development, and machine learning fundamentals.</small></p>
-            </div>
-            <div class="education-row">
-                <div><span>Higher Secondary</span><strong>+2 Science</strong></div>
-                <p><b>Little Star Higher Secondary English School, Lahan</b><br>2020 - 2022 · 74%<br><small>Studied physics, chemistry, mathematics, computer science, and English.</small></p>
-            </div>
-        </section>
-
-
-        <section class="content-section projects-section" id="projects">
-            <div class="section-label">04 / Featured projects</div>
-            <h2>Featured <span class="projects-heading-word">Projects</span></h2>
-
-            <div class="project-grid">
-                <article class="project-card featured-project">
-                    <img src="assets/LAHAN project.png" alt="Lahan digital city ecosystem interface" width="760" height="400" loading="lazy" decoding="async">
-                    <div>
-                        <span>01 / Django · Python · PostgreSQL · Docker</span>
-                        <h3>Lahan</h3>
-                        <h4>Full-Stack Digital City Ecosystem</h4>
-                        <p>My largest full-stack project: 21 interconnected applications bringing local services, businesses, community features, information, and everyday utilities into one platform.</p>
-                        <div class="project-tags" aria-label="Lahan key features"><span>21 Apps</span><span>Marketplace</span><span>Jobs</span><span>Community</span><span>Weather</span><span>Notifications</span></div>
-                        <div class="project-links"><a href="https://nepcity.onrender.com/" target="_blank" rel="noreferrer">Live project <i class="fa-solid fa-arrow-up-right-from-square"></i></a><span class="private-repository"><i class="fa-solid fa-lock"></i> Private repository</span></div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <img src="assets/ai_web_doctor project.png" alt="AI Web Doctor website testing interface" width="760" height="400" loading="lazy" decoding="async">
-                    <div><span>02 / Python · Django · Playwright · AI</span><h3>AI Web Doctor</h3><h4>AI-Powered Website Testing &amp; Debugging</h4><p>Scans websites in a real browser for responsive, accessibility, layout, typography, UX, and performance issues, then generates fixes and verifies them.</p><div class="project-tags"><span>Browser Testing</span><span>UI Health Score</span><span>AI Debugging</span></div><div class="project-links"><a href="https://ai-webdoctor.onrender.com/" target="_blank" rel="noreferrer">Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://github.com/1abhishek0948/Ai-Web-Doctor" target="_blank" rel="noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div></div>
-                </article>
-
-                <article class="project-card">
-                    <img src="assets/lafzloom project.png" alt="Lafzloom multilingual poetry platform interface" width="760" height="400" loading="lazy" decoding="async">
-                    <div><span>03 / Django · PostgreSQL · Tailwind · JWT</span><h3>Lafzloom</h3><h4>Multilingual Poetry &amp; Shayari Platform</h4><p>A full-stack platform for discovering, writing, translating, saving, and sharing poetry with search, moderation, REST APIs, and multilingual support.</p><div class="project-tags"><span>Poetry</span><span>REST API</span><span>Moderation</span></div><div class="project-links"><a href="https://lafzloom.onrender.com/" target="_blank" rel="noreferrer">Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://github.com/1abhishek0948/lafzloom" target="_blank" rel="noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div></div>
-                </article>
-
-            </div>
-
-            <div class="more-projects">
-                <button class="more-projects-toggle" type="button" aria-expanded="false" aria-controls="more-projects-content">
-                    <span>More Projects</span><i class="fa-solid fa-plus" aria-hidden="true"></i>
-                </button>
-                <div class="more-projects-content" id="more-projects-content" hidden>
-                    <div class="more-projects-grid">
-                    <button class="more-project-button" type="button" data-project="hometown-hub" aria-haspopup="dialog" aria-controls="project-details-modal"><span>05 / Next.js · TypeScript</span><h3>Hometown Hub</h3><p>Community and local information platform with a responsive interface.</p><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
-                    <button class="more-project-button" type="button" data-project="digital-neuro" aria-haspopup="dialog" aria-controls="project-details-modal"><span>06 / Python · AI/ML · Web Technologies</span><h3>Digital Neuro</h3><p>Experiment exploring AI-driven intelligent digital interaction.</p><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
-                    <button class="more-project-button" type="button" data-project="universal-media-downloader" aria-haspopup="dialog" aria-controls="project-details-modal"><span>07 / Python · Flask · yt-dlp · Bootstrap</span><h3>Universal Media Downloader</h3><p>Web-based video and playlist downloader with a responsive interface.</p><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
-                    <button class="more-project-button" type="button" data-project="blind-assistance-system" aria-haspopup="dialog" aria-controls="project-details-modal"><span>08 / Python · OpenCV · Raspberry Pi</span><h3>Blind Assistance System</h3><p>Real-time assistive computer vision with distance sensing and voice alerts.</p><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
-                    <button class="more-project-button" type="button" data-project="taleforge" aria-haspopup="dialog" aria-controls="project-details-modal"><span>09 / React · Django REST · OpenAI</span><h3>TaleForge</h3><p>AI-powered interactive storytelling with dynamic narratives and branching experiences.</p><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
-                    <article><span>10 / TypeScript</span><h3>Co-Living Platform</h3><p>A modern concept for discovering and exploring co-living opportunities through an intuitive digital interface.</p><a href="https://github.com/1abhishek0948" target="_blank" rel="noreferrer" aria-label="View Co-Living Platform projects on GitHub"><i class="fa-brands fa-github"></i></a></article>
-                    <article><span>11 / HTML · CSS · JavaScript</span><h3>Impress Crush</h3><p>A creative frontend project built around animation, playful interactions, and engaging visual experiences.</p><a href="https://github.com/1abhishek0948" target="_blank" rel="noreferrer" aria-label="View Impress Crush on GitHub"><i class="fa-brands fa-github"></i></a></article>
-                    <article><span>12 / HTML · CSS · JavaScript</span><h3>HappyBirthday</h3><p>A personalized webpage featuring interactive elements, animations, and visual effects.</p><a href="https://github.com/1abhishek0948" target="_blank" rel="noreferrer" aria-label="View HappyBirthday on GitHub"><i class="fa-brands fa-github"></i></a></article>
-                    <article><span>13 / HTML · CSS · JavaScript</span><h3>Portfolio Projects</h3><p>Multiple experiments exploring responsive layouts, modern UI, animation, interaction, and personal branding.</p><a href="https://github.com/1abhishek0948" target="_blank" rel="noreferrer" aria-label="View portfolio projects on GitHub"><i class="fa-brands fa-github"></i></a></article>
-                    </div>
-                </div>
-            </div>
-
-            <dialog class="projects-modal" id="project-details-modal" aria-labelledby="project-details-title">
-                <div class="modal-header">
-                    <div><span class="section-label" id="modal-project-label">More project</span><h2 id="project-details-title">Project details</h2></div>
-                    <button class="modal-close" type="button" aria-label="Close project details"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <article class="modal-project">
-                    <img id="modal-project-image" src="assets/umd_hero.png" alt="" width="760" height="400" decoding="async">
-                    <div><span id="modal-project-stack">Project stack</span><h3 id="modal-project-name">Universal Media Downloader</h3><h4 id="modal-project-title">Web-Based Media Downloader</h4><p id="modal-project-description"></p><div id="modal-project-features" class="project-tags"></div><a id="modal-project-link" href="https://github.com/1abhishek0948" target="_blank" rel="noreferrer">View on GitHub <i class="fa-brands fa-github"></i></a></div>
-                </article>
-            </dialog>
-
-            <div class="experiments-callout">
-                <div><span>Other experiments</span><h3>Always exploring.<br>Always building.</h3></div>
-                <div><p>A growing collection of smaller projects across Python, Django, Flask, React, TypeScript, AI/ML, computer vision, automation, APIs, UI/UX, and web development.</p><a href="https://github.com/1abhishek0948" target="_blank" rel="noreferrer">Explore GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
-            </div>
-        </section>
-
-
-        <section class="content-section contact-section" id="contact">
-            <div class="contact-copy">
-                <div class="section-label">05 / Contact</div>
-                <h2>Have an idea?<br><em>Let&apos;s make it real.</em></h2>
-                <p>Tell me a little about what you&apos;re building and I&apos;ll get back to you shortly.</p>
-                <a class="contact-link" href="mailto:111abhishek.04367@gmail.com">111abhishek.04367@gmail.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-            <form class="contact-form" id="contact-form">
-                <div class="form-row">
-                    <label>
-                        <span>Your name</span>
-                        <input type="text" name="name" autocomplete="name" required placeholder="Abhishek Thakur">
-                    </label>
-                    <label>
-                        <span>Your email</span>
-                        <input type="email" name="email" autocomplete="email" required placeholder="you@example.com">
-                    </label>
-                </div>
-                <label>
-                    <span>Tell me about your project</span>
-                    <textarea name="message" rows="5" required placeholder="What are you building?"></textarea>
-                </label>
-                <div class="form-footer">
-                    <button class="form-submit" type="submit">Send message <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
-                    <span class="form-status" role="status" aria-live="polite"></span>
-                </div>
-            </form>
-        </section>
-
-        <footer class="site-footer">
-            <span>&copy; 2026 Abhishek Thakur</span>
-            <a href="#home">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
-        </footer>
-
-
-        <!-- Floating Bottom Navigation -->
-        <nav class="bottom-nav" aria-label="Primary navigation">
-            <button
-                class="nav-item active"
-                data-target="home"
-                aria-label="Home"
-                aria-current="page"
-            >
-                <i class="fa-solid fa-house"></i>
-            </button>
-
-            <button
-                class="nav-item"
-                data-target="about"
-                aria-label="About"
-            >
-                <i class="fa-regular fa-user"></i>
-            </button>
-
-            <button
-                class="nav-item"
-                data-target="projects"
-                aria-label="Projects"
-            >
-                <i class="fa-regular fa-file-lines"></i>
-            </button>
-
-            <button
-                class="nav-item"
-                data-target="capabilities"
-                aria-label="Capabilities"
-            >
-                <i class="fa-solid fa-shield-halved"></i>
-            </button>
-
-            <button
-                class="nav-item"
-                data-target="contact"
-                aria-label="Contact"
-            >
-                <i class="fa-solid fa-phone-volume"></i>
-            </button>
-
-        </nav>
-
+        <button class="nav-item" data-target="contact" aria-label="Contact">
+          <i class="fa-solid fa-phone-volume"></i>
+        </button>
+      </nav>
     </main>
 
     <script src="script.js"></script>
-
-</body>
+  </body>
 </html>
