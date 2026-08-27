@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    document.documentElement.classList.add("js-ready");
 
     const themeToggle = document.querySelector(".theme-toggle");
     const contactForm = document.querySelector("#contact-form");
@@ -217,6 +218,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const navItems = document.querySelectorAll(".nav-item");
+
+    const revealItems = document.querySelectorAll(
+        ".content-section > *, .project-card, .technology-group, .experience-item, .education-row, .more-projects-grid > *, .experiments-callout > *, .contact-form > *, .site-footer > *"
+    );
+
+    if (typeof IntersectionObserver !== "undefined") {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle("is-visible", entry.isIntersecting);
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
+
+        revealItems.forEach((item, index) => {
+            item.style.setProperty("--reveal-delay", `${Math.min(index % 5, 4) * 70}ms`);
+            item.classList.add("reveal-item");
+
+            if (item.matches(".experience-item, .education-row")) {
+                item.classList.add("reveal-from-left");
+            }
+
+            if (item.matches(".project-card, .more-projects-grid > *")) {
+                item.classList.add("reveal-project");
+            }
+
+            revealObserver.observe(item);
+        });
+    }
 
     navItems.forEach((item) => {
 
