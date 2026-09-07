@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://devabhishek.onrender.com/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://abhishek-thakur.com.np/</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://abhishek-thakur.com.np/about/</loc><priority>0.9</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/education/</loc><priority>0.8</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/skills/</loc><priority>0.8</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/services/</loc><priority>0.9</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/projects/</loc><priority>0.9</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/projects/lahan-hub/</loc><priority>0.9</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/projects/lafzloom/</loc><priority>0.9</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/projects/blind-assistance-system/</loc><priority>0.9</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/articles/</loc><priority>0.8</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/</loc><priority>0.7</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/</loc><priority>0.7</priority></url>
+  <url><loc>https://abhishek-thakur.com.np/articles/django-react-postgresql/</loc><priority>0.7</priority></url>
 </urlset>

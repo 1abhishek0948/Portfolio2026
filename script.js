@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "hometown-hub": { label: "05 / Next.js · TypeScript", name: "Hometown Hub", title: "Community & Local Information Platform", image: "assets/lahan01.png", description: "A modern community-focused web platform designed to bring local information, services, and experiences together through a clean and responsive interface.", features: ["Community", "Local information", "Responsive UI", "TypeScript", "Next.js"], link: "https://github.com/1abhishek0948/Hometown-HUb" },
         "digital-neuro": { label: "06 / Python · AI/ML · Web Technologies", name: "Digital Neuro", title: "AI & Intelligent Digital Interaction", image: "assets/digital-neuro.png", description: "An AI-focused experimental project exploring intelligent digital interaction and machine-learning concepts through a web-based experience.", features: ["AI/ML", "Python", "Intelligent interaction", "Web technologies", "Experimentation"], link: "https://github.com/1abhishek0948" },
         "universal-media-downloader": { label: "07 / Python · Flask · yt-dlp · Bootstrap", name: "Universal Media Downloader", title: "Web-Based Media Downloader", image: "assets/umd_hero.png", description: "A Flask-powered web application for downloading supported online videos and playlists through a simple, responsive interface.", features: ["Flask", "Python", "yt-dlp", "Video downloads", "Playlist support"], link: "https://github.com/1abhishek0948/Universal-Media-downloader" },
-        "blind-assistance-system": { label: "08 / Python · OpenCV · Raspberry Pi", name: "Blind Assistance System", title: "Real-Time Assistive Computer Vision System", image: "assets/blind-assist.png", description: "An assistive technology project designed to help visually impaired users understand their surroundings using computer vision, object detection, distance sensing, and voice feedback.", features: ["Object detection", "Distance detection", "OpenCV", "Voice alerts", "Raspberry Pi"], link: "https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" },
+        "blind-assistance-system": { label: "08 / Python · OpenCV · Raspberry Pi", name: "Blind Assistance System", title: "Real-Time Assistive Computer Vision System", image: "assets/blind-assistance-system.png", description: "An assistive technology project designed to help visually impaired users understand their surroundings using computer vision, object detection, distance sensing, and voice feedback.", features: ["Object detection", "Distance detection", "OpenCV", "Voice alerts", "Raspberry Pi"], link: "https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" },
         taleforge: { label: "09 / React · Django REST · PostgreSQL · OpenAI", name: "TaleForge", title: "Interactive Story Creation Platform", image: "assets/small-project.png", description: "An interactive storytelling application focused on creating dynamic narratives and branching story experiences with AI-powered storytelling capabilities.", features: ["Story creation", "Interactive narratives", "AI", "React", "PostgreSQL", "JWT"], link: "https://github.com/1abhishek0948/TaleForge-interactive-storytelling" }
     };
 
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navItems = document.querySelectorAll(".nav-item");
 
     const revealItems = document.querySelectorAll(
-        ".content-section > *, .project-card, .technology-group, .experience-item, .education-row, .more-projects-grid > *, .experiments-callout > *, .contact-form > *, .site-footer > *"
+        ".content-section > *, .project-card, .technology-group, .service-card, .services-cta, .experience-item, .education-row, .more-projects-grid > *, .experiments-callout > *, .contact-form > *, .site-footer > *"
     );
 
     if (typeof IntersectionObserver !== "undefined") {
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update active navigation while scrolling
     const sections = document.querySelectorAll(
-        "#home, #about, #capabilities, #experience, #projects, #contact"
+        "#home, #about, #capabilities, #services, #experience, #projects, #contact"
     );
 
     if (typeof IntersectionObserver !== "undefined") {

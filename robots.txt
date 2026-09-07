@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://devabhishek.onrender.com/sitemap.xml
+Sitemap: https://abhishek-thakur.com.np/sitemap.xml
