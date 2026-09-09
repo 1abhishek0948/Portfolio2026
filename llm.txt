@@ -1,0 +1,44 @@
+# Abhishek Thakur - Software Engineer & Full Stack Developer
+
+> Portfolio and services site of Abhishek Thakur (full name: Abhishek Thakur Barhi),
+> a Full Stack Developer from Lahan, Siraha, Madhesh Province, Nepal.
+> Stack: Python, Django, React, PostgreSQL, REST APIs, Docker.
+
+Base URL: https://abhishek-thakur.com.np/
+Contact: 111abhishek.04367@gmail.com
+Profiles: https://github.com/1abhishek0948 | https://www.linkedin.com/in/abhishek0948/ | https://www.instagram.com/1abhishek0948/
+
+## Pages
+
+- / : Portfolio homepage - profile, services overview, featured projects, contact.
+- /about/ : Who Abhishek is, background and how he works.
+- /services/ : Overview of all development services.
+- /services/web-development/ : Responsive, SEO-friendly websites and web apps (Lahan & Nepal).
+- /services/website-design/ : Website design - usable, accessible, responsive interfaces.
+- /services/custom-software-development/ : Business systems, automation, internal tools.
+- /services/saas-development/ : SaaS products - auth, roles, dashboards, APIs.
+- /services/mobile-app-development/ : Android and cross-platform apps with API backends.
+- /services/api-development/ : REST API development, integrations, documentation.
+- /services/database-development/ : PostgreSQL, MySQL, MongoDB design and optimization.
+- /services/python-development/ : Python, Django, automation, OpenCV, AI integrations.
+- /services/full-stack-development/ : End-to-end Django + React + PostgreSQL development.
+- /services/technical-support/ : Maintenance, bug fixes, security updates after launch.
+- /services/seo/ : Technical SEO - structure, metadata, structured data, Core Web Vitals.
+- /services/digital-marketing/ : Organic digital marketing - SEO, content, local visibility.
+- /projects/ : Project index.
+- /projects/lahan-hub/ : LAHAN Hub - 21-app Django digital city ecosystem.
+- /projects/lafzloom/ : Lafzloom - multilingual poetry platform.
+- /projects/blind-assistance-system/ : Assistive computer vision (OpenCV, Raspberry Pi).
+- /articles/ : Engineering notes and practical guides.
+- /articles/website-development-lahan-guide/ : Website guide for businesses in Lahan, Nepal.
+- /articles/website-cost-nepal/ : How much a website costs in Nepal.
+- /articles/how-i-built-lahan-hub/ : Architecture of LAHAN Hub.
+- /articles/how-i-built-my-blind-assistance-system/ : OpenCV assistive project notes.
+- /articles/django-react-postgresql/ : Practical full-stack architecture article.
+- /skills/ : Technology skills overview.
+- /education/ : B.Tech CSE at Parul University; +2 Science, Little Star School, Lahan.
+
+## Notes
+
+- All content is written for humans first; no AI-generated filler pages.
+- No ranking guarantees are offered anywhere on this site.

@@ -41,18 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastProjectButton = null;
 
     const projects = {
-        "hometown-hub": { label: "05 / Next.js · TypeScript", name: "Hometown Hub", title: "Community & Local Information Platform", image: "assets/lahan01.png", description: "A modern community-focused web platform designed to bring local information, services, and experiences together through a clean and responsive interface.", features: ["Community", "Local information", "Responsive UI", "TypeScript", "Next.js"], link: "https://github.com/1abhishek0948/Hometown-HUb" },
-        "digital-neuro": { label: "06 / Python · AI/ML · Web Technologies", name: "Digital Neuro", title: "AI & Intelligent Digital Interaction", image: "assets/digital-neuro.png", description: "An AI-focused experimental project exploring intelligent digital interaction and machine-learning concepts through a web-based experience.", features: ["AI/ML", "Python", "Intelligent interaction", "Web technologies", "Experimentation"], link: "https://github.com/1abhishek0948" },
-        "universal-media-downloader": { label: "07 / Python · Flask · yt-dlp · Bootstrap", name: "Universal Media Downloader", title: "Web-Based Media Downloader", image: "assets/umd_hero.png", description: "A Flask-powered web application for downloading supported online videos and playlists through a simple, responsive interface.", features: ["Flask", "Python", "yt-dlp", "Video downloads", "Playlist support"], link: "https://github.com/1abhishek0948/Universal-Media-downloader" },
-        "blind-assistance-system": { label: "08 / Python · OpenCV · Raspberry Pi", name: "Blind Assistance System", title: "Real-Time Assistive Computer Vision System", image: "assets/blind-assistance-system.png", description: "An assistive technology project designed to help visually impaired users understand their surroundings using computer vision, object detection, distance sensing, and voice feedback.", features: ["Object detection", "Distance detection", "OpenCV", "Voice alerts", "Raspberry Pi"], link: "https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" },
-        taleforge: { label: "09 / React · Django REST · PostgreSQL · OpenAI", name: "TaleForge", title: "Interactive Story Creation Platform", image: "assets/small-project.png", description: "An interactive storytelling application focused on creating dynamic narratives and branching story experiences with AI-powered storytelling capabilities.", features: ["Story creation", "Interactive narratives", "AI", "React", "PostgreSQL", "JWT"], link: "https://github.com/1abhishek0948/TaleForge-interactive-storytelling" }
+        "hometown-hub": { label: "05 / Next.js · TypeScript", name: "Hometown Hub", title: "Community & Local Information Platform", image: "assets/hometown-hub.webp", description: "A modern community-focused web platform designed to bring local information, services, and experiences together through a clean and responsive interface.", features: ["Community", "Local information", "Responsive UI", "TypeScript", "Next.js"], link: "https://github.com/1abhishek0948/Hometown-HUb" },
+        "digital-neuro": { label: "06 / Python · AI/ML · Web Technologies", name: "Digital Neuro", title: "AI & Intelligent Digital Interaction", image: "assets/digital-neuro.webp", description: "An AI-focused experimental project exploring intelligent digital interaction and machine-learning concepts through a web-based experience.", features: ["AI/ML", "Python", "Intelligent interaction", "Web technologies", "Experimentation"], link: "https://github.com/1abhishek0948" },
+        "universal-media-downloader": { label: "07 / Python · Flask · yt-dlp · Bootstrap", name: "Universal Media Downloader", title: "Web-Based Media Downloader", image: "assets/universal-media-downloader.webp", description: "A Flask-powered web application for downloading supported online videos and playlists through a simple, responsive interface.", features: ["Flask", "Python", "yt-dlp", "Video downloads", "Playlist support"], link: "https://github.com/1abhishek0948/Universal-Media-downloader" },
+        "blind-assistance-system": { label: "08 / Python · OpenCV · Raspberry Pi", name: "Blind Assistance System", title: "Real-Time Assistive Computer Vision System", image: "assets/blind-assistance-system.webp", description: "An assistive technology project designed to help visually impaired users understand their surroundings using computer vision, object detection, distance sensing, and voice feedback.", features: ["Object detection", "Distance detection", "OpenCV", "Voice alerts", "Raspberry Pi"], link: "https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" },
+        taleforge: { label: "09 / React · Django REST · PostgreSQL · OpenAI", name: "TaleForge", title: "Interactive Story Creation Platform", image: "assets/taleforge.webp", description: "An interactive storytelling application focused on creating dynamic narratives and branching story experiences with AI-powered storytelling capabilities.", features: ["Story creation", "Interactive narratives", "AI", "React", "PostgreSQL", "JWT"], link: "https://github.com/1abhishek0948/TaleForge-interactive-storytelling" }
     };
 
     moreProjectsToggle?.addEventListener("click", () => {
         const isExpanded = moreProjectsToggle.getAttribute("aria-expanded") === "true";
         moreProjectsToggle.setAttribute("aria-expanded", String(!isExpanded));
         moreProjectsToggle.querySelector("span").textContent = isExpanded ? "More Projects" : "Hide Projects";
-        moreProjectsToggle.querySelector("i").className = `fa-solid ${isExpanded ? "fa-plus" : "fa-minus"}`;
+        moreProjectsToggle.querySelector("use").setAttribute("href", isExpanded ? "#i-plus" : "#i-minus");
         if (moreProjectsContent) moreProjectsContent.hidden = isExpanded;
     });
 
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (themeToggle) {
             themeToggle.setAttribute("aria-pressed", String(isDark));
             themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-            themeToggle.innerHTML = `<i class="fa-solid ${isDark ? "fa-sun" : "fa-moon"}" aria-hidden="true"></i>`;
+            themeToggle.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-${isDark ? "sun" : "moon"}"></use></svg>`;
         }
     };
 
@@ -141,10 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const isOnline = navigator.onLine;
-        connectionStatus.classList.toggle("fa-wifi", isOnline);
-        connectionStatus.classList.toggle("fa-wifi-slash", !isOnline);
-        connectionStatus.title = isOnline ? "Online" : "Offline";
+        const use = connectionStatus.querySelector("use");
+        if (use) use.setAttribute("href", navigator.onLine ? "#i-wifi" : "#i-wifi-off");
+        connectionStatus.title = navigator.onLine ? "Online" : "Offline";
     };
 
     const updateBatteryStatus = (battery) => {
@@ -153,12 +152,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const level = Math.round(battery.level * 100);
-        const icon = level <= 10 ? "fa-battery-empty" :
-            level <= 25 ? "fa-battery-quarter" :
-                level <= 50 ? "fa-battery-half" :
-                    level <= 75 ? "fa-battery-three-quarters" : "fa-battery-full";
+        const tier = level <= 10 ? "empty" :
+            level <= 25 ? "quarter" :
+                level <= 50 ? "half" :
+                    level <= 75 ? "three-quarters" : "full";
 
-        batteryStatus.className = `fa-solid ${icon}`;
+        const use = batteryStatus.querySelector("use");
+        if (use) use.setAttribute("href", `#i-battery-${tier}`);
         batteryStatus.title = `${level}%${battery.charging ? ", charging" : ""}`;
     };
 

@@ -1,1 +1,90 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How I Built My Blind Assistance System | Abhishek Thakur</title><meta name="description" content="Abhishek Thakur documents his Blind Assistance System experiment using Python, OpenCV, Raspberry Pi, distance sensing and voice feedback."><link rel="canonical" href="https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/"><link rel="stylesheet" href="../../seo-pages.css"></head><body><main class="page"><nav><a href="../../">Home</a><a href="../">Articles</a><a href="../../projects/blind-assistance-system/">Project</a><a href="../../about/">About</a></nav><span class="label">Article / Computer vision</span><h1>How I Built My Blind Assistance System</h1><p>By <a href="../../about/">Abhishek Thakur</a></p><p>This project explores how a small assistive system can turn visual and distance signals into useful voice feedback. I used Python, OpenCV and Raspberry Pi to combine camera-based object detection with distance sensing.</p><h2>Design considerations</h2><p>The important challenge was not only detecting an object, but communicating an alert in a way that is timely and understandable. The system is an experimental assistive project and should not be treated as a complete navigation solution.</p><p>Read the <a href="../../projects/blind-assistance-system/">Blind Assistance System project details</a> and source code on <a href="https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM">GitHub</a>.</p><footer>Article by Abhishek Thakur | <a href="../">All articles</a></footer></main><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How I Built My Blind Assistance System","author":{"@type":"Person","name":"Abhishek Thakur","url":"https://abhishek-thakur.com.np/about/"},"mainEntityOfPage":"https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/"}</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How I Built a Blind Assistance System with OpenCV</title>
+  <meta name="description" content="Abhishek Thakur documents his Blind Assistance System: combining Python, OpenCV, Raspberry Pi, distance sensing and voice feedback into an assistive experiment.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Abhishek Thakur">
+  <meta name="theme-color" content="#f5f5f2">
+  <link rel="canonical" href="https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/">
+  <link rel="alternate" hreflang="en" href="https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/">
+  <link rel="alternate" hreflang="x-default" href="https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" sizes="48x48">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../seo-pages.css">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Abhishek Thakur">
+  <meta property="og:title" content="How I Built a Blind Assistance System with OpenCV">
+  <meta property="og:description" content="Abhishek Thakur documents his Blind Assistance System: combining Python, OpenCV, Raspberry Pi, distance sensing and voice feedback into an assistive experiment.">
+  <meta property="og:url" content="https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/">
+  <meta property="og:image" content="https://abhishek-thakur.com.np/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Abhishek Thakur - Software Engineer and Full Stack Developer from Lahan, Nepal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How I Built a Blind Assistance System with OpenCV">
+  <meta name="twitter:description" content="Abhishek Thakur documents his Blind Assistance System: combining Python, OpenCV, Raspberry Pi, distance sensing and voice feedback into an assistive experiment.">
+  <meta name="twitter:image" content="https://abhishek-thakur.com.np/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="Abhishek Thakur - Software Engineer and Full Stack Developer from Lahan, Nepal">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/#webpage", "url": "https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/", "name": "How I Built a Blind Assistance System with OpenCV", "description": "Abhishek Thakur documents his Blind Assistance System: combining Python, OpenCV, Raspberry Pi, distance sensing and voice feedback into an assistive experiment.", "inLanguage": "en", "isPartOf": {"@id": "https://abhishek-thakur.com.np/#website"}, "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abhishek-thakur.com.np/"}, {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://abhishek-thakur.com.np/articles/"}, {"@type": "ListItem", "position": 3, "name": "How I Built My Blind Assistance System", "item": "https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/"}]}}, {"@type": "BlogPosting", "@id": "https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/#article", "headline": "How I Built My Blind Assistance System", "description": "Combining Python, OpenCV, Raspberry Pi, distance sensing and voice feedback into an assistive experiment.", "mainEntityOfPage": {"@id": "https://abhishek-thakur.com.np/articles/how-i-built-my-blind-assistance-system/#webpage"}, "author": {"@id": "https://abhishek-thakur.com.np/#person"}, "publisher": {"@id": "https://abhishek-thakur.com.np/#person"}, "datePublished": "2026-09-07", "dateModified": "2026-09-07", "inLanguage": "en", "image": ["https://abhishek-thakur.com.np/assets/blind-assistance-system.webp"]}]}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-head">
+      <nav aria-label="Primary">
+        <a href="../../">Home</a>
+        <a href="../../about/">About</a>
+        <a href="../../services/">Services</a>
+        <a href="../../projects/">Projects</a>
+        <a href="../../articles/" aria-current="page">Articles</a>
+        <a href="../../skills/">Skills</a>
+        <a href="../../education/">Education</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+    </header>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../articles/">Articles</a></li>
+      <li><span aria-current="page">How I Built My Blind Assistance System</span></li>
+      </ol>
+    </nav>
+    <main id="main">
+      <span class="label">Article / Computer vision</span>
+      <h1>How I Built My Blind Assistance System</h1>
+      <div class="article-meta"><span>By <a href="../../about/">Abhishek Thakur</a></span><time datetime="2026-09-07">Sep 7, 2026</time><span>6 min read</span></div>
+      <p class="lede">This project explores how a small assistive system can turn visual and distance signals into useful voice feedback. I used Python, OpenCV and Raspberry Pi to combine camera-based object detection with distance sensing.</p>
+
+      <figure>
+        <img src="../../assets/blind-assistance-system.webp" alt="Prototype hardware for the Blind Assistance System: camera, Raspberry Pi and ultrasonic sensor" width="720" height="376" loading="lazy" decoding="async">
+        <figcaption>Low-cost hardware, real constraints.</figcaption>
+      </figure>
+
+      <h2>Design considerations</h2>
+      <p>The important challenge was not only detecting an object, but communicating an alert in a way that is timely and understandable. A voice that says "chair, two metres" a second too late is worse than silence. Latency, clarity and consistency of the spoken feedback ended up mattering more than raw detection accuracy.</p>
+
+      <h2>What the system does</h2>
+      <ul>
+        <li>Detects obstacles in the camera feed using OpenCV</li>
+        <li>Measures distance to the nearest obstacle with an ultrasonic sensor</li>
+        <li>Converts both signals into short, prioritised spoken alerts</li>
+      </ul>
+
+      <h2>Honest limits</h2>
+      <p>This is an experimental assistive project, not a complete navigation solution, and I present it that way. What it proves is that useful assistance can be built from cheap components and careful engineering &mdash; and that the interface between a system and a human is where the design work really lives.</p>
+
+      <p>Read the <a href="../../projects/blind-assistance-system/">project case study</a> and the source on <a href="https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" rel="noreferrer">GitHub</a>, or browse <a href="../">all articles</a>.</p>
+    </main>
+    <footer class="site-foot">
+      <span>&copy; 2026 Abhishek Thakur &middot; Lahan, Nepal</span>
+      <a href="https://github.com/1abhishek0948" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhishek0948/" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:111abhishek.04367@gmail.com">Email</a>
+    </footer>
+  </div>
+</body>
+</html>

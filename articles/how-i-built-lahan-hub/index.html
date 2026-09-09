@@ -1,1 +1,91 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How I Built LAHAN Hub | Abhishek Thakur</title><meta name="description" content="Abhishek Thakur explains the scope and technical approach behind LAHAN Hub, a Django, PostgreSQL and Docker digital city ecosystem project."><link rel="canonical" href="https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/"><link rel="stylesheet" href="../../seo-pages.css"></head><body><main class="page"><nav><a href="../../">Home</a><a href="../">Articles</a><a href="../../projects/lahan-hub/">LAHAN Hub</a><a href="../../about/">About</a></nav><span class="label">Article / Project notes</span><h1>How I Built LAHAN Hub</h1><p>By <a href="../../about/">Abhishek Thakur</a></p><p>LAHAN Hub started as an attempt to bring several useful city experiences into one coherent platform. Instead of treating the site as a single feature, I organised it as 21 interconnected Django applications covering local services, businesses, community features and everyday utilities.</p><h2>Architecture</h2><p>Python and Django provide the application layer, PostgreSQL stores the structured data, and Docker keeps the development and deployment environment reproducible. The project required thinking about relationships between features, shared authentication and a consistent user experience.</p><h2>What I learned</h2><p>The project reinforced the importance of defining boundaries between application areas early, keeping data models understandable and designing navigation around what people need to do rather than around the underlying code structure.</p><p>See the <a href="../../projects/lahan-hub/">LAHAN Hub project page</a>.</p><footer>Article by Abhishek Thakur | <a href="../">All articles</a></footer></main><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How I Built LAHAN Hub","author":{"@type":"Person","name":"Abhishek Thakur","url":"https://abhishek-thakur.com.np/about/"},"mainEntityOfPage":"https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/","about":{"@type":"CreativeWork","name":"LAHAN Hub"}}</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How I Built LAHAN Hub: 21 Django Apps, One Platform</title>
+  <meta name="description" content="Abhishek Thakur explains the architecture, boundaries and lessons behind LAHAN Hub, a digital city ecosystem of 21 Django applications with PostgreSQL and Docker.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Abhishek Thakur">
+  <meta name="theme-color" content="#f5f5f2">
+  <link rel="canonical" href="https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/">
+  <link rel="alternate" hreflang="en" href="https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/">
+  <link rel="alternate" hreflang="x-default" href="https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" sizes="48x48">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../seo-pages.css">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Abhishek Thakur">
+  <meta property="og:title" content="How I Built LAHAN Hub: 21 Django Apps, One Platform">
+  <meta property="og:description" content="Abhishek Thakur explains the architecture, boundaries and lessons behind LAHAN Hub, a digital city ecosystem of 21 Django applications with PostgreSQL and Docker.">
+  <meta property="og:url" content="https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/">
+  <meta property="og:image" content="https://abhishek-thakur.com.np/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Abhishek Thakur - Software Engineer and Full Stack Developer from Lahan, Nepal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How I Built LAHAN Hub: 21 Django Apps, One Platform">
+  <meta name="twitter:description" content="Abhishek Thakur explains the architecture, boundaries and lessons behind LAHAN Hub, a digital city ecosystem of 21 Django applications with PostgreSQL and Docker.">
+  <meta name="twitter:image" content="https://abhishek-thakur.com.np/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="Abhishek Thakur - Software Engineer and Full Stack Developer from Lahan, Nepal">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/#webpage", "url": "https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/", "name": "How I Built LAHAN Hub: 21 Django Apps, One Platform", "description": "Abhishek Thakur explains the architecture, boundaries and lessons behind LAHAN Hub, a digital city ecosystem of 21 Django applications with PostgreSQL and Docker.", "inLanguage": "en", "isPartOf": {"@id": "https://abhishek-thakur.com.np/#website"}, "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abhishek-thakur.com.np/"}, {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://abhishek-thakur.com.np/articles/"}, {"@type": "ListItem", "position": 3, "name": "How I Built LAHAN Hub", "item": "https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/"}]}}, {"@type": "BlogPosting", "@id": "https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/#article", "headline": "How I Built LAHAN Hub", "description": "The architecture, boundaries and lessons behind a 21-application Django digital city ecosystem.", "mainEntityOfPage": {"@id": "https://abhishek-thakur.com.np/articles/how-i-built-lahan-hub/#webpage"}, "author": {"@id": "https://abhishek-thakur.com.np/#person"}, "publisher": {"@id": "https://abhishek-thakur.com.np/#person"}, "datePublished": "2026-09-07", "dateModified": "2026-09-07", "inLanguage": "en", "image": ["https://abhishek-thakur.com.np/assets/lahan-hub-project.webp"]}]}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-head">
+      <nav aria-label="Primary">
+        <a href="../../">Home</a>
+        <a href="../../about/">About</a>
+        <a href="../../services/">Services</a>
+        <a href="../../projects/">Projects</a>
+        <a href="../../articles/" aria-current="page">Articles</a>
+        <a href="../../skills/">Skills</a>
+        <a href="../../education/">Education</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+    </header>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../articles/">Articles</a></li>
+      <li><span aria-current="page">How I Built LAHAN Hub</span></li>
+      </ol>
+    </nav>
+    <main id="main">
+      <span class="label">Article / Project notes</span>
+      <h1>How I Built LAHAN Hub</h1>
+      <div class="article-meta"><span>By <a href="../../about/">Abhishek Thakur</a></span><time datetime="2026-09-07">Sep 7, 2026</time><span>7 min read</span></div>
+      <p class="lede">LAHAN Hub started as an attempt to bring several useful city experiences into one coherent platform. Instead of treating the site as a single feature, I organised it as 21 interconnected Django applications covering local services, businesses, community features and everyday utilities.</p>
+
+      <figure>
+        <img src="../../assets/lahan-hub-project.webp" alt="LAHAN Hub platform interface showing several of its 21 applications" width="720" height="393" loading="lazy" decoding="async">
+        <figcaption>One project, 21 applications &mdash; and a lot of boundary decisions.</figcaption>
+      </figure>
+
+      <h2>Architecture</h2>
+      <p>Python and Django provide the application layer, PostgreSQL stores the structured data, and Docker keeps the development and deployment environment reproducible. The interesting part wasn't any single application &mdash; it was the relationships between them: shared authentication, shared user profiles, and data that sometimes needed to cross application boundaries without turning the codebase into spaghetti.</p>
+
+      <h2>Deciding the boundaries</h2>
+      <p>The hardest decisions were about where each application's responsibility ended. A marketplace listing, a business profile and a community post look similar in code but behave differently in life. I learned to define those boundaries early &mdash; and to let a few intentional shared services exist where duplication would have been worse than coupling.</p>
+
+      <h2>What I learned</h2>
+      <ul>
+        <li>Define boundaries between application areas before features, not after</li>
+        <li>Keep data models understandable &mdash; future-you is the main user of your schema</li>
+        <li>Design navigation around what people need to do, not around the code structure</li>
+        <li>A reproducible Docker environment pays for itself the first time a "works on my machine" bug appears</li>
+      </ul>
+
+      <p>See the <a href="../../projects/lahan-hub/">LAHAN Hub project page</a> for the full case study. If you're planning a platform with many moving parts, my <a href="../../services/custom-software-development/">custom software development</a> service is where that experience gets applied &mdash; or browse <a href="../">all articles</a>.</p>
+    </main>
+    <footer class="site-foot">
+      <span>&copy; 2026 Abhishek Thakur &middot; Lahan, Nepal</span>
+      <a href="https://github.com/1abhishek0948" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhishek0948/" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:111abhishek.04367@gmail.com">Email</a>
+    </footer>
+  </div>
+</body>
+</html>

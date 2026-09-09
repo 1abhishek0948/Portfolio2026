@@ -1,1 +1,87 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Building Full-Stack Applications with Django, React and PostgreSQL</title><meta name="description" content="Abhishek Thakur shares a practical full-stack development approach using Django, REST APIs, React and PostgreSQL."><link rel="canonical" href="https://abhishek-thakur.com.np/articles/django-react-postgresql/"><link rel="stylesheet" href="../../seo-pages.css"></head><body><main class="page"><nav><a href="../../">Home</a><a href="../">Articles</a><a href="../../skills/">Skills</a><a href="../../projects/">Projects</a></nav><span class="label">Article / Full stack</span><h1>Building Full-Stack Applications with Django, React and PostgreSQL</h1><p>By <a href="../../about/">Abhishek Thakur</a></p><p>A full-stack application becomes easier to reason about when the frontend, API and database each have a clear responsibility. In my projects, Django handles backend logic and REST endpoints, React renders interactive interfaces, and PostgreSQL provides structured persistence.</p><h2>Connecting the layers</h2><p>I start with the data and user flows, then define API responses that are useful to the interface. This keeps React components focused on presentation and interaction while Django handles validation, authentication and business rules.</p><h2>Practical lessons</h2><p>Consistent naming, small testable features and clear boundaries make it easier to evolve a project. Building LAHAN Hub and Lafzloom helped me apply these ideas to real features rather than isolated tutorials.</p><p>Explore the <a href="../../projects/">projects behind these lessons</a>.</p><footer>Article by Abhishek Thakur | <a href="../">All articles</a></footer></main><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Building Full-Stack Applications with Django, React and PostgreSQL","author":{"@type":"Person","name":"Abhishek Thakur","url":"https://abhishek-thakur.com.np/about/"},"mainEntityOfPage":"https://abhishek-thakur.com.np/articles/django-react-postgresql/"}</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Django + React + PostgreSQL: A Practical Full-Stack Approach</title>
+  <meta name="description" content="Abhishek Thakur shares a practical full-stack architecture with Django, REST APIs, React and PostgreSQL, and the lessons that keep it maintainable.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Abhishek Thakur">
+  <meta name="theme-color" content="#f5f5f2">
+  <link rel="canonical" href="https://abhishek-thakur.com.np/articles/django-react-postgresql/">
+  <link rel="alternate" hreflang="en" href="https://abhishek-thakur.com.np/articles/django-react-postgresql/">
+  <link rel="alternate" hreflang="x-default" href="https://abhishek-thakur.com.np/articles/django-react-postgresql/">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" sizes="48x48">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../seo-pages.css">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Abhishek Thakur">
+  <meta property="og:title" content="Django + React + PostgreSQL: A Practical Full-Stack Approach">
+  <meta property="og:description" content="Abhishek Thakur shares a practical full-stack architecture with Django, REST APIs, React and PostgreSQL, and the lessons that keep it maintainable.">
+  <meta property="og:url" content="https://abhishek-thakur.com.np/articles/django-react-postgresql/">
+  <meta property="og:image" content="https://abhishek-thakur.com.np/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Abhishek Thakur - Software Engineer and Full Stack Developer from Lahan, Nepal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Django + React + PostgreSQL: A Practical Full-Stack Approach">
+  <meta name="twitter:description" content="Abhishek Thakur shares a practical full-stack architecture with Django, REST APIs, React and PostgreSQL, and the lessons that keep it maintainable.">
+  <meta name="twitter:image" content="https://abhishek-thakur.com.np/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="Abhishek Thakur - Software Engineer and Full Stack Developer from Lahan, Nepal">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://abhishek-thakur.com.np/articles/django-react-postgresql/#webpage", "url": "https://abhishek-thakur.com.np/articles/django-react-postgresql/", "name": "Django + React + PostgreSQL: A Practical Full-Stack Approach", "description": "Abhishek Thakur shares a practical full-stack architecture with Django, REST APIs, React and PostgreSQL, and the lessons that keep it maintainable.", "inLanguage": "en", "isPartOf": {"@id": "https://abhishek-thakur.com.np/#website"}, "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abhishek-thakur.com.np/"}, {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://abhishek-thakur.com.np/articles/"}, {"@type": "ListItem", "position": 3, "name": "Django + React + PostgreSQL", "item": "https://abhishek-thakur.com.np/articles/django-react-postgresql/"}]}}, {"@type": "BlogPosting", "@id": "https://abhishek-thakur.com.np/articles/django-react-postgresql/#article", "headline": "Building Full-Stack Applications with Django, React and PostgreSQL", "description": "A practical full-stack architecture with Django, REST APIs, React and PostgreSQL, and the lessons that keep it maintainable.", "mainEntityOfPage": {"@id": "https://abhishek-thakur.com.np/articles/django-react-postgresql/#webpage"}, "author": {"@id": "https://abhishek-thakur.com.np/#person"}, "publisher": {"@id": "https://abhishek-thakur.com.np/#person"}, "datePublished": "2026-09-07", "dateModified": "2026-09-07", "inLanguage": "en"}]}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-head">
+      <nav aria-label="Primary">
+        <a href="../../">Home</a>
+        <a href="../../about/">About</a>
+        <a href="../../services/">Services</a>
+        <a href="../../projects/">Projects</a>
+        <a href="../../articles/" aria-current="page">Articles</a>
+        <a href="../../skills/">Skills</a>
+        <a href="../../education/">Education</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+    </header>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../articles/">Articles</a></li>
+      <li><span aria-current="page">Django + React + PostgreSQL</span></li>
+      </ol>
+    </nav>
+    <main id="main">
+      <span class="label">Article / Full stack</span>
+      <h1>Building Full-Stack Applications with Django, React and PostgreSQL</h1>
+      <div class="article-meta"><span>By <a href="../../about/">Abhishek Thakur</a></span><time datetime="2026-09-07">Sep 7, 2026</time><span>8 min read</span></div>
+      <p class="lede">A full-stack application becomes easier to reason about when the frontend, API and database each have a clear responsibility. In my projects, Django handles backend logic and REST endpoints, React renders interactive interfaces, and PostgreSQL provides structured persistence.</p>
+
+      <h2>Start with the data</h2>
+      <p>I start with the data and the user flows, before writing either the API or the components. When the database model reflects how the domain actually works, every layer above it gets easier: serializers map to models, components map to API responses, and changes stay local instead of cascading everywhere.</p>
+
+      <h2>Connecting the layers</h2>
+      <p>Next I define API responses that are useful to the interface &mdash; shaped for what the screen actually displays, not as raw dumps of database rows. This keeps React components focused on presentation and interaction while Django handles validation, authentication and business rules. JWT tokens keep the session state where it belongs; error responses stay consistent so the frontend can handle failure gracefully.</p>
+
+      <h2>Practical lessons</h2>
+      <ul>
+        <li>Consistent naming across layers &mdash; the database, API and UI should speak the same language</li>
+        <li>Small, testable features beat large, impressive ones</li>
+        <li>Clear boundaries between layers make change cheap; blurry ones make everything expensive</li>
+        <li>Build the boring parts (auth, validation, error handling) properly first &mdash; they carry everything else</li>
+      </ul>
+
+      <h2>Where you can see this</h2>
+      <p>Building <a href="../../projects/lahan-hub/">LAHAN Hub</a> and <a href="../../projects/lafzloom/">Lafzloom</a> applied these ideas to real features rather than isolated tutorials. If you want the same architecture behind your product, that's exactly what my <a href="../../services/full-stack-development/">full stack development</a> service delivers. Browse <a href="../">all articles</a> for more.</p>
+    </main>
+    <footer class="site-foot">
+      <span>&copy; 2026 Abhishek Thakur &middot; Lahan, Nepal</span>
+      <a href="https://github.com/1abhishek0948" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhishek0948/" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:111abhishek.04367@gmail.com">Email</a>
+    </footer>
+  </div>
+</body>
+</html>
