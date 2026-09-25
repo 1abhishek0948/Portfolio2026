@@ -123,61 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const deviceTime = document.querySelector("#device-time");
-    const connectionStatus = document.querySelector("#connection-status");
-    const batteryStatus = document.querySelector("#battery-status");
-
-    const updateDeviceTime = () => {
-        if (deviceTime) {
-            deviceTime.textContent = new Intl.DateTimeFormat([], {
-                hour: "numeric",
-                minute: "2-digit"
-            }).format(new Date());
-        }
-    };
-
-    const updateConnectionStatus = () => {
-        if (!connectionStatus) {
-            return;
-        }
-
-        const use = connectionStatus.querySelector("use");
-        if (use) use.setAttribute("href", navigator.onLine ? "#i-wifi" : "#i-wifi-off");
-        connectionStatus.title = navigator.onLine ? "Online" : "Offline";
-    };
-
-    const updateBatteryStatus = (battery) => {
-        if (!batteryStatus) {
-            return;
-        }
-
-        const level = Math.round(battery.level * 100);
-        const tier = level <= 10 ? "empty" :
-            level <= 25 ? "quarter" :
-                level <= 50 ? "half" :
-                    level <= 75 ? "three-quarters" : "full";
-
-        const use = batteryStatus.querySelector("use");
-        if (use) use.setAttribute("href", `#i-battery-${tier}`);
-        batteryStatus.title = `${level}%${battery.charging ? ", charging" : ""}`;
-    };
-
-    updateDeviceTime();
-    updateConnectionStatus();
-    window.setInterval(updateDeviceTime, 30000);
-    window.addEventListener("online", updateConnectionStatus);
-    window.addEventListener("offline", updateConnectionStatus);
-
-    if (typeof navigator.getBattery === "function") {
-        navigator.getBattery().then((battery) => {
-            updateBatteryStatus(battery);
-            battery.addEventListener("levelchange", () => updateBatteryStatus(battery));
-            battery.addEventListener("chargingchange", () => updateBatteryStatus(battery));
-        }).catch(() => {
-            // Battery information is optional and unavailable in several browsers.
-        });
-    }
-
     const marqueeTrack = document.querySelector(".marquee-track");
 
     if (marqueeTrack) {
