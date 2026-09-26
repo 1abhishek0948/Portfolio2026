@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.classList.add("js-ready");
 
     const themeToggle = document.querySelector(".theme-toggle");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuDrawer = document.querySelector(".menu-drawer");
+    const menuBackdrop = document.querySelector(".menu-backdrop");
     const contactForm = document.querySelector("#contact-form");
 
     contactForm?.addEventListener("submit", (event) => {
@@ -120,6 +123,72 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Private browsing can deny storage access; the toggle still works for this session.
             }
             setTheme(nextTheme);
+        });
+    }
+
+    const setMenu = (isOpen, restoreFocus = false) => {
+        if (!menuToggle || !menuDrawer) {
+            return;
+        }
+
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+        menuDrawer.classList.toggle("is-open", isOpen);
+        menuDrawer.setAttribute("aria-hidden", String(!isOpen));
+        menuDrawer.toggleAttribute("inert", !isOpen);
+        menuBackdrop?.classList.toggle("is-visible", isOpen);
+        menuBackdrop?.setAttribute("aria-hidden", String(!isOpen));
+        document.body.classList.toggle("menu-open", isOpen);
+
+        if (isOpen) {
+            menuDrawer.querySelector("a")?.focus();
+        } else if (restoreFocus) {
+            menuToggle.focus();
+        }
+    };
+
+    if (menuToggle && menuDrawer) {
+        menuToggle.addEventListener("click", () => {
+            setMenu(!menuDrawer.classList.contains("is-open"));
+        });
+
+        menuBackdrop?.addEventListener("click", () => {
+            setMenu(false, true);
+        });
+
+        menuDrawer.addEventListener("click", (event) => {
+            if (event.target instanceof Element && event.target.closest("a")) {
+                setMenu(false);
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (!menuDrawer.classList.contains("is-open")) {
+                return;
+            }
+
+            if (event.key === "Escape") {
+                event.preventDefault();
+                setMenu(false, true);
+                return;
+            }
+
+            if (event.key !== "Tab") {
+                return;
+            }
+
+            const focusableItems = [menuToggle, ...menuDrawer.querySelectorAll("a")];
+            const firstItem = focusableItems[0];
+            const lastItem = focusableItems[focusableItems.length - 1];
+
+            if (event.shiftKey && document.activeElement === firstItem) {
+                event.preventDefault();
+                lastItem.focus();
+            } else if (!event.shiftKey && document.activeElement === lastItem) {
+                event.preventDefault();
+                firstItem.focus();
+            }
         });
     }
 

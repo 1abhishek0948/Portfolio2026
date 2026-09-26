@@ -536,6 +536,15 @@
 
     <main class="app" id="main-content">
       <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <button
         class="theme-toggle"
         type="button"
         aria-label="Switch to dark mode"
@@ -545,6 +554,56 @@
           <use href="#i-moon"></use>
         </svg>
       </button>
+
+      <div class="menu-backdrop" aria-hidden="true"></div>
+      <nav class="menu-drawer" id="site-menu" aria-label="Main navigation" aria-hidden="true" inert>
+        <div class="menu-drawer-header">
+          <span class="menu-drawer-kicker">Portfolio navigation</span>
+        </div>
+
+        <div class="menu-drawer-links">
+          <a class="menu-drawer-link" href="services/">
+            <span class="menu-drawer-number" aria-hidden="true">01</span>
+            <span class="menu-drawer-copy">
+              <strong>Services</strong>
+              <span>What I can design, build, and ship</span>
+            </span>
+            <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+          </a>
+          <a class="menu-drawer-link" href="projects/">
+            <span class="menu-drawer-number" aria-hidden="true">02</span>
+            <span class="menu-drawer-copy">
+              <strong>Projects</strong>
+              <span>Selected products and experiments</span>
+            </span>
+            <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+          </a>
+          <a class="menu-drawer-link" href="articles/">
+            <span class="menu-drawer-number" aria-hidden="true">03</span>
+            <span class="menu-drawer-copy">
+              <strong>Articles</strong>
+              <span>Long-form engineering guides</span>
+            </span>
+            <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+          </a>
+          <a class="menu-drawer-link" href="Blogs/">
+            <span class="menu-drawer-number" aria-hidden="true">04</span>
+            <span class="menu-drawer-copy">
+              <strong>Blogs</strong>
+              <span>Short notes and fresh thinking</span>
+            </span>
+            <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+          </a>
+        </div>
+
+        <div class="menu-drawer-footer">
+          <span class="menu-drawer-footnote">Have an idea worth building well?</span>
+          <a class="menu-drawer-cta" href="mailto:111abhishek.04367@gmail.com">
+            <span>Start a conversation</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+          </a>
+        </div>
+      </nav>
 
       <!-- Profile Section -->
       <section class="hero" id="home">
@@ -582,8 +641,8 @@
 
         <div class="hero-copy-stack">
           <p class="intro">
-            I design, build, and deploy user-focused web applications with
-            Python, Django, React, PostgreSQL, and REST APIs. I enjoy taking
+            I design, build, and deploy user-focused web apps with
+            Python, Django, React, PostgreSQL,REST APIs FastAPI. I enjoy taking
             products from a rough idea to a reliable, working experience.
           </p>
 
@@ -1537,6 +1596,7 @@
         <a href="services/">Services</a>
         <a href="projects/">Projects</a>
         <a href="articles/">Articles</a>
+        <a href="Blogs/">Blogs</a>
         <a href="#home"
           >Back to top
           <svg class="icon" aria-hidden="true">

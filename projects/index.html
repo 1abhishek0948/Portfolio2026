@@ -42,14 +42,16 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="page">
+  <div class="page page-wide">
     <header class="site-head">
+      <a class="brand" href="../">Abhishek Thakur</a>
       <nav aria-label="Primary">
         <a href="../">Home</a>
         <a href="../about/">About</a>
         <a href="../services/">Services</a>
         <a href="../projects/" aria-current="page">Projects</a>
         <a href="../articles/">Articles</a>
+        <a href="../Blogs/">Blogs</a>
         <a href="../skills/">Skills</a>
         <a href="../education/">Education</a>
         <a href="../#contact">Contact</a>
@@ -66,30 +68,60 @@
       <h1>Software Projects</h1>
       <p class="lede">Selected full-stack, Python and computer-vision projects by Abhishek Thakur &mdash; each one built end to end, from data model to deployed product.</p>
 
-      <div class="grid">
-        <section class="card">
-          <span class="label">Django &middot; PostgreSQL &middot; Docker</span>
-          <h2><a href="lahan-hub/">LAHAN Hub</a></h2>
-          <p>A digital city ecosystem of 21 interconnected applications &mdash; local services, marketplace, jobs, community and everyday utilities for a city like Lahan, Nepal.</p>
-          <div class="card-tags"><span>21 apps</span><span>Marketplace</span><span>Jobs</span><span>Community</span></div>
-        </section>
-        <section class="card">
-          <span class="label">Django &middot; PostgreSQL &middot; Tailwind &middot; JWT</span>
-          <h2><a href="lafzloom/">Lafzloom</a></h2>
-          <p>A multilingual poetry and Shayari platform for discovering, writing, translating and sharing poetry, with REST APIs, search and moderation.</p>
-          <div class="card-tags"><span>Poetry</span><span>REST API</span><span>JWT</span><span>Moderation</span></div>
-        </section>
-        <section class="card">
-          <span class="label">Python &middot; OpenCV &middot; Raspberry Pi</span>
-          <h2><a href="blind-assistance-system/">Blind Assistance System</a></h2>
-          <p>An assistive computer-vision experiment that combines object detection, distance sensing and voice feedback to describe obstacles to visually impaired users.</p>
-          <div class="card-tags"><span>Computer vision</span><span>OpenCV</span><span>Accessibility</span></div>
-        </section>
+      <div class="grid projects-grid">
+        <a class="card card-link project-card" href="lahan-hub/">
+          <div class="project-card-image">
+            <img src="../assets/lahan-hub-project.webp" alt="LAHAN Hub project interface" loading="lazy" decoding="async">
+          </div>
+          <div class="project-card-content">
+            <span class="label">Django &middot; PostgreSQL &middot; Docker</span>
+            <h2>LAHAN Hub</h2>
+            <p>A digital city ecosystem of 21 interconnected applications &mdash; local services, marketplace, jobs, community and everyday utilities for a city like Lahan, Nepal.</p>
+            <div class="card-tags"><span>21 apps</span><span>Marketplace</span><span>Jobs</span><span>Community</span></div>
+            <span class="card-action">View project</span>
+          </div>
+        </a>
+        <a class="card card-link project-card" href="lafzloom/">
+          <div class="project-card-image">
+            <img src="../assets/lafzloom-project.webp" alt="Lafzloom project interface" loading="lazy" decoding="async">
+          </div>
+          <div class="project-card-content">
+            <span class="label">Django &middot; PostgreSQL &middot; Tailwind &middot; JWT</span>
+            <h2>Lafzloom</h2>
+            <p>A multilingual poetry and Shayari platform for discovering, writing, translating and sharing poetry, with REST APIs, search and moderation.</p>
+            <div class="card-tags"><span>Poetry</span><span>REST API</span><span>JWT</span><span>Moderation</span></div>
+            <span class="card-action">View project</span>
+          </div>
+        </a>
+        <a class="card card-link project-card" href="blind-assistance-system/">
+          <div class="project-card-image">
+            <img src="../assets/blind-assistance-system.webp" alt="Blind Assistance System project interface" loading="lazy" decoding="async">
+          </div>
+          <div class="project-card-content">
+            <span class="label">Python &middot; OpenCV &middot; Raspberry Pi</span>
+            <h2>Blind Assistance System</h2>
+            <p>An assistive computer-vision experiment that combines object detection, distance sensing and voice feedback to describe obstacles to visually impaired users.</p>
+            <div class="card-tags"><span>Computer vision</span><span>OpenCV</span><span>Accessibility</span></div>
+            <span class="card-action">View project</span>
+          </div>
+        </a>
       </div>
 
       <h2>Other experiments</h2>
       <p>Beyond these case studies I've built AI Web Doctor (AI-powered website testing), TaleForge (AI storytelling), a Universal Media Downloader with Flask, Hometown Hub with Next.js, and many smaller frontend and automation experiments. Most of them are open on <a href="https://github.com/1abhishek0948" rel="noreferrer">my GitHub profile</a>, and several are written up in the <a href="../articles/">articles section</a>.</p>
       <p>If a project here resembles something you want built, my <a href="../services/">development services</a> cover the same stack, and you can <a href="../#contact">contact me</a> directly.</p>
+
+      <div class="cta">
+        <div>
+          <span class="label">Have a project in mind?</span>
+          <h2>Let’s build something useful.</h2>
+          <p>Tell me what you are working on and I’ll help you choose a clear, maintainable path from idea to launch.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="cta-primary" href="../#contact">Start a conversation</a>
+          <a class="cta-secondary" href="../services/">Explore services</a>
+        </div>
+      </div>
     </main>
     <footer class="site-foot">
       <span>&copy; 2026 Abhishek Thakur &middot; Lahan, Nepal</span>
