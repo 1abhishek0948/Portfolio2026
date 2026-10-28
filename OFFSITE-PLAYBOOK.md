@@ -10,8 +10,8 @@ company nepal") take 6-12 months of links + consistency. No one can promise #1.
 ## 1. Google Search Console (week 1)
 1. Add `abhishek-thakur.com.np` as a domain property; verify.
 2. Submit these sitemaps (already in robots.txt):
-   - https://abhishek-thakur.com.np/sitemap.xml
-   - https://abhishek-thakur.com.np/sitemap-blog-index.xml
+   - https://www.abhishek-thakur.com.np/sitemap.xml
+   - https://www.abhishek-thakur.com.np/sitemap-blog-index.xml
 3. Request Indexing on the money pages first:
    - /blog/ , /blog/local-seo-kathmandu-businesses/ , /blog/how-to-get-dollar-card-nepal/
    - /blog/how-to-start-freelancing-nepal/ , /blog/digital-marketing-agency-nepal/

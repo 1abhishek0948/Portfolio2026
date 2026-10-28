@@ -4,7 +4,7 @@
 > a Full Stack Developer from Lahan, Siraha, Madhesh Province, Nepal.
 > Stack: Python, Django, React, PostgreSQL, REST APIs, Docker.
 
-Base URL: https://abhishek-thakur.com.np/
+Base URL: https://www.abhishek-thakur.com.np/
 Contact: 111abhishek.04367@gmail.com
 Profiles: https://github.com/1abhishek0948 | https://www.linkedin.com/in/abhishek0948/ | https://www.instagram.com/1abhishek0948/
 

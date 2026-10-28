@@ -2,6 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "abhishek-thakur.com.np"
+        }
+      ],
+      "destination": "https://www.abhishek-thakur.com.np/$1",
+      "permanent": true
+    },
+    {
       "source": "/about",
       "destination": "/",
       "permanent": true

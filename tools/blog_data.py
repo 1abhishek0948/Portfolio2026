@@ -2,7 +2,7 @@
 # 20 "money" posts are written in full (indexed). The remaining 980 are
 # noindex outline pages generated from 98 base topics x 10 angles.
 
-SITE = "https://abhishek-thakur.com.np"
+SITE = "https://www.abhishek-thakur.com.np"
 AUTHOR = "Abhishek Thakur"
 PUBLISH_DATE = "2026-10-27"
 
