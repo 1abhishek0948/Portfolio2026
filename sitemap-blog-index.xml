@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-core.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-payments.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-freelancing.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-web.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-marketing.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-business.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-career.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-travel.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://abhishek-thakur.com.np/sitemap-blog-ai.xml</loc>
+    </sitemap>
+</sitemapindex>
