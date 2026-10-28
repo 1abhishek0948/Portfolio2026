@@ -35,7 +35,7 @@ Profiles: https://github.com/1abhishek0948 | https://www.linkedin.com/in/abhishe
 - /articles/how-i-built-lahan-hub/ : Architecture of LAHAN Hub.
 - /articles/how-i-built-my-blind-assistance-system/ : OpenCV assistive project notes.
 - /articles/django-react-postgresql/ : Practical full-stack architecture article.
-- /Blogs/ : Short-form software engineering and web development notes.
+- /blog/ : Nepal-focused guides on money, marketing and tech (dollar cards, freelancing, web development, digital marketing, business, career, travel and AI). Category hubs live under /blog/category/<topic>/.
 - /skills/ : Technology skills overview.
 - /education/ : B.Tech CSE at Parul University; +2 Science, Little Star School, Lahan.
 
@@ -43,3 +43,4 @@ Profiles: https://github.com/1abhishek0948 | https://www.linkedin.com/in/abhishe
 
 - All content is written for humans first; no AI-generated filler pages.
 - No ranking guarantees are offered anywhere on this site.
+- The /blog/ library holds 1,000 Nepal guides across 8 topic hubs; each page is indexable and carries a FAQ and a "sources and how to verify" note. The separate /articles/ outlines remain noindex until written. See /llms.txt for citation facts.

@@ -121,6 +121,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://abhishek-thakur.com.np/articles/website-development-lahan-guide/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -151,7 +157,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://abhishek-thakur.com.np/Blogs/</loc>
+    <loc>https://abhishek-thakur.com.np/blog/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -167,5 +173,11 @@
     <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://abhishek-thakur.com.np/digital-pr/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

@@ -192,6 +192,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Close the drawer if the viewport crosses into the desktop layout,
+    // where the drawer and hamburger are hidden in favour of the top nav.
+    const desktopLayout = window.matchMedia("(min-width: 1024px)");
+    if (typeof desktopLayout.addEventListener === "function") {
+        desktopLayout.addEventListener("change", (event) => {
+            if (event.matches) {
+                setMenu(false);
+            }
+        });
+    }
+    if (desktopLayout.matches && menuDrawer) {
+        setMenu(false);
+    }
+
+    // Compact the sticky header once the page is scrolled.
+    const siteHeader = document.querySelector(".site-header");
+    const updateHeaderState = () => {
+        siteHeader?.classList.toggle("is-scrolled", window.scrollY > 10);
+    };
+    updateHeaderState();
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+
     const marqueeTrack = document.querySelector(".marquee-track");
 
     if (marqueeTrack) {
@@ -231,20 +253,40 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("scroll", handleScroll, { passive: true });
     }
 
-    const navItems = document.querySelectorAll(".nav-item");
+    // Every primary-navigation surface carries data-target, so one list
+    // drives the click handler and the scroll-spy for all of them.
+    const navItems = document.querySelectorAll("[data-target]");
 
     const revealItems = document.querySelectorAll(
-        ".content-section > *, .project-card, .technology-group, .service-card, .services-cta, .experience-item, .education-row, .more-projects-grid > *, .experiments-callout > *, .contact-form > *, .site-footer > *"
+        ".content-section > *, .project-card, .technology-group, .service-card, .services-cta, .projects-cta, .articles-cta, .services-stats, .projects-stats, .services-prose, .process-list, .pricing-note, .services-intro, .projects-hero, .experiments-block h2, .experiments-intro, .experiments-note, .experiment-card, .experience-item, .education-row, .more-projects-grid > *, .experiments-callout > *, .contact-form > *, .articles-grid > *, .articles-support, .article-library, .site-footer > *"
     );
 
     if (typeof IntersectionObserver !== "undefined") {
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                entry.target.classList.toggle("is-visible", entry.isIntersecting);
-            });
-        }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    // Reveal-only: once content has appeared it must never be
+                    // hidden again (toggle-based reveals made content vanish
+                    // while scrolling on tall pages).
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                });
+            },
+            // threshold 0 + a small bottom margin: any pixel of a block being
+            // inside the viewport reveals it. High thresholds left tall blocks
+            // (e.g. whole-page shells) permanently invisible at small screens.
+            { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+        );
 
         revealItems.forEach((item, index) => {
+            // Oversized wrappers (e.g. .projects-shell / .articles-shell) span
+            // the whole page; animating them as one unit hid everything inside
+            // at several viewport sizes. Reveal their inner blocks instead.
+            if (item.getBoundingClientRect().height > window.innerHeight * 1.5) {
+                return;
+            }
+
             item.style.setProperty("--reveal-delay", `${Math.min(index % 5, 4) * 70}ms`);
             item.classList.add("reveal-item");
 
@@ -263,6 +305,23 @@ document.addEventListener("DOMContentLoaded", () => {
     navItems.forEach((item) => {
 
         item.addEventListener("click", () => {
+
+            // Anchor-based nav surfaces scroll natively (CSS smooth scroll +
+            // scroll-margin-top handle the sticky header); only the
+            // button-style nav needs scripted scrolling.
+            if (item.matches("a")) {
+                const targetId = item.dataset.target;
+
+                if (targetId && document.getElementById(targetId)) {
+                    navItems.forEach((nav) => {
+                        nav.classList.remove("active");
+                        nav.removeAttribute("aria-current");
+                    });
+                    item.classList.add("active");
+                    item.setAttribute("aria-current", "page");
+                }
+                return;
+            }
 
             const targetId = item.dataset.target;
 
@@ -312,19 +371,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         ? "capabilities"
                         : sectionId;
 
-                    navItems.forEach((item) => {
-
-                        if (item.dataset.target === navTarget) {
-
-                            navItems.forEach((nav) => {
-                                nav.classList.remove("active");
-                                nav.removeAttribute("aria-current");
-                            });
-
-                            item.classList.add("active");
-                            item.setAttribute("aria-current", "page");
+                    // Sync every nav surface (top bar + bottom pill) in one pass so
+                    // no surface overwrites another regardless of DOM order.
+                    navItems.forEach((nav) => {
+                        const matches = nav.dataset.target === navTarget;
+                        nav.classList.toggle("active", matches);
+                        if (matches) {
+                            nav.setAttribute("aria-current", "page");
+                        } else {
+                            nav.removeAttribute("aria-current");
                         }
-
                     });
 
                 }

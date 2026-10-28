@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Scaling Django with Read Replicas &amp; PgBouncer | Abhishek Thakur</title>
+  <meta name="description" content="A practical guide to scaling Django beyond the monolith: when to add PostgreSQL read replicas, how to pool connections with PgBouncer, and the trade-offs that matter.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Abhishek Thakur">
+  <meta name="theme-color" content="#f5f5f2">
+  <link rel="canonical" href="https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/">
+  <link rel="alternate" hreflang="en" href="https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/">
+  <link rel="alternate" hreflang="x-default" href="https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" sizes="48x48">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../articles.css">
+  <link rel="stylesheet" href="../article.css">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Abhishek Thakur">
+  <meta property="og:title" content="Scaling Django Beyond Monoliths: Read Replicas and PgBouncer">
+  <meta property="og:description" content="A practical guide to scaling Django beyond the monolith: when to add PostgreSQL read replicas, how to pool connections with PgBouncer, and the trade-offs that matter.">
+  <meta property="og:url" content="https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/">
+  <meta property="article:published_time" content="2026-10-27T00:00:00+05:45">
+  <meta property="article:modified_time" content="2026-10-27T00:00:00+05:45">
+  <meta property="article:author" content="Abhishek Thakur">
+  <meta property="article:tag" content="Django">
+  <meta property="article:tag" content="PostgreSQL">
+  <meta property="article:tag" content="PgBouncer">
+  <meta property="article:tag" content="Scaling">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Server racks in a data center for a scalable Django deployment">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scaling Django Beyond Monoliths: Read Replicas and PgBouncer">
+  <meta name="twitter:description" content="A practical guide to scaling Django beyond the monolith: when to add PostgreSQL read replicas, how to pool connections with PgBouncer, and the trade-offs that matter.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta name="twitter:image:alt" content="Server racks in a data center for a scalable Django deployment">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/#webpage","url":"https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/","name":"Scaling Django Beyond Monoliths: Read Replicas and PgBouncer","description":"A practical guide to scaling Django beyond the monolith: when to add PostgreSQL read replicas, how to pool connections with PgBouncer, and the trade-offs that matter.","inLanguage":"en","isPartOf":{"@id":"https://abhishek-thakur.com.np/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abhishek-thakur.com.np/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://abhishek-thakur.com.np/articles/"},{"@type":"ListItem","position":3,"name":"Scaling Django Beyond Monoliths: Read Replicas and PgBouncer","item":"https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/"}]}},{"@type":"Article","@id":"https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/#article","headline":"Scaling Django Beyond Monoliths: Read Replicas and PgBouncer","description":"A practical guide to scaling Django beyond the monolith: when to add PostgreSQL read replicas, how to pool connections with PgBouncer, and the trade-offs that matter.","image":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80","width":1200,"height":800},"datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"en","author":{"@id":"https://abhishek-thakur.com.np/#person"},"publisher":{"@id":"https://abhishek-thakur.com.np/#person"},"mainEntityOfPage":{"@id":"https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/#webpage"},"keywords":"Django scaling, PostgreSQL read replicas, PgBouncer, Django connection pooling, database router, replication lag"},{"@type":"Person","@id":"https://abhishek-thakur.com.np/#person","name":"Abhishek Thakur","url":"https://abhishek-thakur.com.np/","image":"https://abhishek-thakur.com.np/assets/abhishek-thakur-profile.jpeg","jobTitle":"Software Engineer and Full Stack Developer","sameAs":["https://github.com/1abhishek0948","https://www.linkedin.com/in/abhishek0948/"],"address":{"@type":"PostalAddress","addressLocality":"Lahan","addressCountry":"NP"}},{"@type":"FAQPage","@id":"https://abhishek-thakur.com.np/articles/scaling-django-read-replicas-pgbouncer/#faq","mainEntity":[{"@type":"Question","name":"Does Django support read replicas natively?","acceptedAnswer":{"@type":"Answer","text":"Django does not manage PostgreSQL replication, but it supports multiple databases out of the box. You define a primary and a replica in DATABASES, then route reads explicitly with using() or automatically with a database router."}},{"@type":"Question","name":"Should PgBouncer use transaction or session mode with Django?","acceptedAnswer":{"@type":"Answer","text":"Transaction mode suits most Django web applications because a server connection is returned to the pool after each transaction. Session mode is safer for features that depend on session state but scales far worse. Statement mode breaks multi-statement transactions and is not suitable for typical Django apps."}},{"@type":"Question","name":"Is a read replica a backup?","acceptedAnswer":{"@type":"Answer","text":"No. A replica receives every change from the primary, including accidental deletes, and replication lag means it is not a point-in-time copy. Keep independent, tested backups."}},{"@type":"Question","name":"How do I know if replication lag is too high?","acceptedAnswer":{"@type":"Answer","text":"Measure replay delay on the replica with pg_last_xact_replay_timestamp() and set a threshold that matches your product, usually one to two seconds for read-heavy pages. If lag crosses the threshold, route reads back to the primary."}},{"@type":"Question","name":"Can I use PgBouncer with serverless PostgreSQL?","acceptedAnswer":{"@type":"Answer","text":"Managed providers such as Neon and Supabase usually offer their own pooler. Use the provider pooler before adding your own PgBouncer, and check whether it runs in transaction mode, because that affects server-side cursors and prepared statements."}}]}]}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKDSVM9N74"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LKDSVM9N74');
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true">
+    <defs>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="m17.66 17.66 1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="m6.34 17.66-1.41 1.41" />
+        <path d="m19.07 4.93-1.41 1.41" />
+      </symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+        <line x1="7" y1="17" x2="17" y2="7" />
+        <polyline points="7 7 17 7 17 17" />
+      </symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12" />
+        <polyline points="12 19 5 12 12 5" />
+      </symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24">
+        <line x1="12" x2="12" y1="19" y2="5" />
+        <polyline points="5 12 12 5 19 12" />
+      </symbol>
+      <symbol id="i-share" viewBox="0 0 24 24">
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+      </symbol>
+      <symbol id="i-home" viewBox="0 0 24 24">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </symbol>
+      <symbol id="i-user" viewBox="0 0 24 24">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
+      <symbol id="i-file-text" viewBox="0 0 24 24">
+        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+        <line x1="16" x2="8" y1="13" y2="13" />
+        <line x1="16" x2="8" y1="17" y2="17" />
+        <line x1="10" x2="8" y1="9" y2="9" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+      </symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24">
+        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+        <path d="M20 3v4" />
+        <path d="M22 5h-4" />
+        <path d="M4 17v2" />
+        <path d="M5 18H3" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="app">
+    <header class="site-header">
+      <a class="brand-logo" href="../../" aria-label="Abhishek Thakur home">
+        <img
+          src="../../assets/abhishek-thakur-logo.webp"
+          alt="Abhishek Thakur"
+          width="152"
+          height="100"
+        />
+      </a>
+      <nav class="top-nav" aria-label="Site navigation">
+        <a class="top-nav-link" href="../../#about" data-target="about">About</a>
+        <a class="top-nav-link" href="../../#capabilities" data-target="capabilities">Capabilities</a>
+        <a class="top-nav-link" href="../../services/">Services</a>
+        <a class="top-nav-link" href="../../projects/">Projects</a>
+        <a class="top-nav-link active" href="../" aria-current="page">Articles</a>
+        <a class="top-nav-link" href="../../blog/">Blog</a>
+      </nav>
+      <div class="header-right">
+        <a class="top-nav-cta" href="../../#contact">Start a project</a>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          aria-pressed="false"
+        >
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-moon"></use>
+          </svg>
+        </button>
+      </div>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="menu-backdrop" aria-hidden="true"></div>
+    <nav class="menu-drawer" id="site-menu" aria-label="Main navigation" aria-hidden="true" inert>
+      <div class="menu-drawer-header">
+        <span class="menu-drawer-kicker">Portfolio navigation</span>
+      </div>
+
+      <div class="menu-drawer-links">
+        <a class="menu-drawer-link" href="../../services/">
+          <span class="menu-drawer-number" aria-hidden="true">01</span>
+          <span class="menu-drawer-copy">
+            <strong>Services</strong>
+            <span>What I can design, build, and ship</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+        <a class="menu-drawer-link" href="../../projects/">
+          <span class="menu-drawer-number" aria-hidden="true">02</span>
+          <span class="menu-drawer-copy">
+            <strong>Projects</strong>
+            <span>Selected products and experiments</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+        <a class="menu-drawer-link" href="../" aria-current="page">
+          <span class="menu-drawer-number" aria-hidden="true">03</span>
+          <span class="menu-drawer-copy">
+            <strong>Articles</strong>
+            <span>Long-form engineering guides</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+        <a class="menu-drawer-link" href="../../blog/">
+          <span class="menu-drawer-number" aria-hidden="true">04</span>
+          <span class="menu-drawer-copy">
+            <strong>Blog</strong>
+            <span>Nepal money, marketing & tech guides</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+      </div>
+
+      <div class="menu-drawer-footer">
+        <span class="menu-drawer-footnote">Have an idea worth building well?</span>
+        <a class="menu-drawer-cta" href="mailto:111abhishek.04367@gmail.com">
+          <span>Start a conversation</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+      </div>
+    </nav>
+
+    <main id="main" class="content-section">
+      <div class="article-shell">
+        <div class="reading-progress" aria-hidden="true"></div>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Articles</a></li>
+            <li><span aria-current="page">Scaling Django Beyond Monoliths</span></li>
+          </ol>
+        </nav>
+
+        <article class="article">
+          <header class="article-head">
+            <span class="chip">Backend engineering</span>
+            <h1>Scaling Django Beyond Monoliths: Read Replicas and PgBouncer</h1>
+            <p class="article-lede">Most Django apps do not need microservices when the database starts to hurt. They need fewer connections, better queries, and a read path that knows what it can safely offload. Here is how I approach that without rewriting the product.</p>
+
+            <div class="article-meta">
+              <img
+                class="avatar"
+                src="../../assets/abhishek-thakur-profile.jpeg"
+                alt=""
+                width="96"
+                height="96"
+                loading="eager"
+                decoding="async"
+              />
+              <div>
+                <a class="meta-name" href="../../about/">Abhishek Thakur</a>
+                <span class="meta-details">
+                  Published <time datetime="2026-10-27">Oct 27, 2026</time>
+                  &middot; Updated <time datetime="2026-10-27">Oct 27, 2026</time>
+                  <span data-reading-time hidden>&middot; <span data-reading-minutes></span> min read</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="article-share">
+              <button class="share-btn" type="button" data-share="share" aria-label="Share this article">
+                <svg class="icon" aria-hidden="true"><use href="#i-share"></use></svg>
+                <span data-share-label>Share</span>
+              </button>
+              <button class="share-btn" type="button" data-share="copy" aria-label="Copy link to this article">
+                <span data-share-label>Copy link</span>
+              </button>
+              <a class="share-btn" href="mailto:?subject=Scaling%20Django%20Beyond%20Monoliths%3A%20Read%20Replicas%20and%20PgBouncer&body=https%3A%2F%2Fabhishek-thakur.com.np%2Farticles%2Fscaling-django-read-replicas-pgbouncer%2F">
+                Email
+              </a>
+            </div>
+          </header>
+
+          <figure class="article-featured">
+            <img
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+              alt="Server racks in a data center for a scalable Django deployment"
+              width="1200"
+              height="800"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+            <figcaption>
+              <span>LAHAN Hub &mdash; a Django monolith on PostgreSQL. Growing it was a database-tier conversation, not a rewrite.</span>
+              <span>Real project</span>
+            </figcaption>
+          </figure>
+
+          <div class="article-layout">
+            <div class="article-body" id="article-body">
+              <h2 id="not-more-services">The fix is usually not more services</h2>
+              <p>Every few months someone asks me whether their Django application should be split into microservices because the database is struggling. Almost every time, the honest answer is no. The monolith did not run out of room. The database connection pool did.</p>
+              <p>I have watched a modest Django project &mdash; a few thousand daily users and a handful of background jobs &mdash; jump from 40 to several hundred Postgres connections after one traffic spike, mostly because every Gunicorn worker thread held a connection open and nobody had bounded the pool. CPU was fine. Memory was fine. Postgres was refusing new work because it had reached <code>max_connections</code>.</p>
+              <p>That is a connection problem wearing a scaling costume. The path I would take before touching the application architecture is: measure, pool the connections, offload the reads, and keep the monolith. This article covers the pieces I actually use &mdash; PgBouncer in transaction mode, PostgreSQL streaming replicas, and the Django configuration that connects them &mdash; including the parts most tutorials skip, like replica lag and read-after-write consistency.</p>
+
+              <h2 id="bottleneck">Start with the bottleneck, not the diagram</h2>
+              <p>Scaling diagrams are satisfying. They are also usually drawn before anyone checks which resource is actually exhausted. Before adding infrastructure, I want four numbers from production:</p>
+              <ul>
+                <li><strong>p95 and p99 latency</strong>, not the average. Averages hide the requests that make users leave.</li>
+                <li><strong>Active and idle connections</strong>, grouped by state and wait event.</li>
+                <li><strong>Database CPU and disk wait</strong>, sampled during the slowest hour of the day.</li>
+                <li><strong>Slow query fingerprints</strong> from <code>pg_stat_statements</code>, sorted by total time rather than per-call time.</li>
+              </ul>
+              <p>This query is usually enough to see whether you have a connection problem or a query problem:</p>
+              <pre><code>SELECT state, wait_event_type, wait_event, count(*)
+FROM pg_stat_activity
+WHERE datname = 'app'
+GROUP BY 1, 2, 3
+ORDER BY 4 DESC;</code></pre>
+              <p>If most sessions sit in <code>idle</code>, your application is holding connections it is not using &mdash; pooling will help. If sessions are active and waiting on <code>IO</code> or <code>LWLock</code>, adding a pooler will only move the queue. Fix the queries first. Indexes, removing N+1 patterns, and selecting fewer columns are still the cheapest scaling work available. I wrote about the ORM side of that in <a href="../django-react-postgresql/">the full-stack article</a>.</p>
+
+              <h2 id="connection-cost">PostgreSQL connections are expensive by design</h2>
+              <p>PostgreSQL uses a process per connection. Each one consumes memory, a backend slot, and scheduler attention. The default <code>max_connections</code> is often 100, which sounds generous until you multiply it by deployment reality:</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Layer</th>
+                      <th>Calculation</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Gunicorn worker slots</td>
+                      <td>workers &times; threads</td>
+                      <td>4 &times; 4 = 16 per instance</td>
+                    </tr>
+                    <tr>
+                      <td>Application instances</td>
+                      <td>replicas behind the load balancer</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>Client connections per alias</td>
+                      <td>16 &times; 3</td>
+                      <td>48</td>
+                    </tr>
+                    <tr>
+                      <td>Aliases (primary + replica)</td>
+                      <td>48 &times; 2</td>
+                      <td>96</td>
+                    </tr>
+                    <tr>
+                      <td>PgBouncer max_client_conn</td>
+                      <td>above + headroom</td>
+                      <td>200</td>
+                    </tr>
+                    <tr>
+                      <td>Server connections per pool</td>
+                      <td>default_pool_size</td>
+                      <td>20</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Without a pooler, those 96 connections reach Postgres directly. With a pooler, 96 clients share 20 server connections per pool, and the database sees the second number instead of the first. That is the whole trick. Everything else is configuration discipline.</p>
+              <p>Django's <code>CONN_MAX_AGE</code> makes the arithmetic worse if it is set high without a pooler: every thread keeps its connection open for the duration, so a deploy that starts three new instances before the old ones drain can briefly double the connection count. Connection storms during deploys are a classic way to take down an otherwise healthy database.</p>
+
+              <h2 id="pgbouncer">What PgBouncer actually does</h2>
+              <p>PgBouncer sits between Django and PostgreSQL and multiplexes many client connections onto a small number of server connections. It does not cache queries or make them faster. It decides who gets to talk to Postgres, and for how long.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Pool mode</th>
+                      <th>When the server connection returns to the pool</th>
+                      <th>Django suitability</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Session</td>
+                      <td>When the client disconnects</td>
+                      <td>Safe, but close to direct connections at high concurrency</td>
+                    </tr>
+                    <tr>
+                      <td>Transaction</td>
+                      <td>When the transaction commits or rolls back</td>
+                      <td>Recommended default for web workloads</td>
+                    </tr>
+                    <tr>
+                      <td>Statement</td>
+                      <td>After every statement</td>
+                      <td>Breaks multi-statement transactions &mdash; avoid</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Transaction mode is the usual choice because most Django requests are short transactions. <code>transaction.atomic()</code> and <code>ATOMIC_REQUESTS</code> still work: one transaction maps to one server connection for its lifetime. What breaks are features that assume session state survives between transactions &mdash; <code>SET</code> values, <code>LISTEN</code>/<code>NOTIFY</code>, temporary tables, and advisory locks held across requests. Django itself mostly stays inside one transaction per request, but custom middleware and raw SQL are where these assumptions sneak in.</p>
+              <p>One Django-specific detail matters: server-side cursors. With transaction pooling, a named cursor cannot survive after its transaction ends, so Django's <code>DISABLE_SERVER_SIDE_CURSORS</code> must be enabled. If you use psycopg 3 with server-side prepared statements, check your PgBouncer version as well; prepared statement support in transaction mode arrived in PgBouncer 1.21, and older versions need client-side preparation.</p>
+
+              <h2 id="wiring">Wiring Django to PgBouncer without surprises</h2>
+              <p>A minimal pooler configuration looks like this. Run one PgBouncer instance per Postgres node &mdash; one for the primary, one for each replica &mdash; because a single <code>[databases]</code> entry points at a single host.</p>
+              <pre><code>[databases]
+app = host=10.0.0.10 port=5432 dbname=app
+
+[pgbouncer]
+listen_addr = 0.0.0.0
+listen_port = 6432
+auth_type = scram-sha-256
+auth_file = /etc/pgbouncer/userlist.txt
+pool_mode = transaction
+max_client_conn = 400
+default_pool_size = 20
+min_pool_size = 5
+reserve_pool_size = 5
+reserve_pool_timeout = 3
+server_idle_timeout = 60
+query_wait_timeout = 10</code></pre>
+              <p>The Django side is ordinary configuration with three additions that matter:</p>
+              <pre><code>import os
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "app",
+        "USER": "app",
+        "PASSWORD": os.environ["DB_PASSWORD"],
+        "HOST": "pgbouncer-primary.internal",
+        "PORT": "6432",
+        "CONN_MAX_AGE": 60,
+        "CONN_HEALTH_CHECKS": True,
+        "DISABLE_SERVER_SIDE_CURSORS": True,
+        "OPTIONS": {
+            "connect_timeout": 5,
+            "options": "-c statement_timeout=30000",
+        },
+    },
+    "replica": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "app",
+        "USER": "app_readonly",
+        "PASSWORD": os.environ["DB_PASSWORD"],
+        "HOST": "pgbouncer-replica.internal",
+        "PORT": "6432",
+        "CONN_MAX_AGE": 60,
+        "CONN_HEALTH_CHECKS": True,
+        "DISABLE_SERVER_SIDE_CURSORS": True,
+        "TEST": {"MIRROR": "default"},
+        "OPTIONS": {
+            "connect_timeout": 5,
+            "options": "-c statement_timeout=30000",
+        },
+    },
+}</code></pre>
+              <p>Three details are doing quiet work here. <code>CONN_HEALTH_CHECKS</code> makes Django verify a persistent connection before reusing it, which saves you from stale connections after a database failover. The <code>statement_timeout</code> stops a runaway query from occupying a pooled server connection forever. And <code>TEST: {"MIRROR": "default"}</code> keeps your test suite on one database instead of trying to create and migrate a replica that does not exist.</p>
+              <p>Keep <code>CONN_MAX_AGE</code> modest. With a pooler, it controls client-to-pooler connections, not Postgres backends, so the usual advice changes. A value between 30 and 60 seconds is a reasonable starting point; measure <code>max_client_conn</code> usage before raising it.</p>
+
+              <h2 id="replicas">Read replicas: useful, not magic</h2>
+              <p>A read replica is a standby PostgreSQL server that continuously applies the primary's write-ahead log. Reads sent to it do not compete with writes on the primary, which is exactly what a reporting page, a search endpoint, or a feed of mostly-static content needs.</p>
+              <p>What a replica does not give you: faster writes, a backup, or unlimited read scale. It is asynchronous. The primary commits, then the WAL travels, then the replica replays it. For a few milliseconds to a few seconds, the replica is answering questions about an older version of reality. Under heavy write load or network trouble, that gap can grow.</p>
+              <p>This is why I route specific endpoints to a replica rather than sending every read there automatically. Good candidates share three traits: they are read-heavy, they tolerate slightly stale data, and a wrong answer is not expensive. Analytics dashboards, article archives, search results, and recommendation feeds fit. Login checks, stock decrements, payment state, and anything a user just changed do not.</p>
+
+              <h2 id="routing">Routing reads in Django without lying to yourself</h2>
+              <p>Django supports multiple databases without any extra package. Define the aliases, then either use <code>.using("replica")</code> explicitly or add a router that makes the decision for you. I start explicit, because automatic read/write splitting is where most read-after-write bugs are born.</p>
+              <pre><code># config/db_router.py
+class ReplicaReadRouter:
+    """Writes and migrations go to the primary. Reads opt in explicitly."""
+
+    def db_for_write(self, model, **hints):
+        return "default"
+
+    def allow_relation(self, obj1, obj2, **hints):
+        databases = {"default", "replica"}
+        if obj1._state.db in databases and obj2._state.db in databases:
+            return True
+        return None
+
+    def allow_migrate(self, db, app_label, model_name=None, **hints):
+        return db == "default"</code></pre>
+              <p>Then a reporting view opts in where lag is acceptable:</p>
+              <pre><code>from django.db.models import Count
+from django.http import JsonResponse
+
+def article_report(request):
+    rows = (
+        Article.objects.using("replica")
+        .filter(is_published=True)
+        .values("author_id")
+        .annotate(total=Count("id"))
+    )
+    return JsonResponse(list(rows), safe=False)</code></pre>
+              <p>If you do enable <code>db_for_read</code> returning <code>"replica"</code>, remember that it applies everywhere, including the read inside a request that just wrote. Django will happily open a transaction on the replica with <code>transaction.atomic(using="replica")</code> if the code asks for it. The fix is not to pretend the lag is not there; the fix is to make the routing decision honest per endpoint.</p>
+
+              <h2 id="lag">The read-after-write problem, solved honestly</h2>
+              <p>The moment a user saves a profile and is redirected to a page that reads from a lagging replica, they see their old data. No amount of pooling prevents this. Handle it in one of three ways:</p>
+              <ul>
+                <li><strong>Keep post-write reads on the primary.</strong> Return the updated object from the write path, or render confirmation from the primary for that request.</li>
+                <li><strong>Use a short sticky window.</strong> Store a timestamp in the session or cache after a write and route that user's reads to the primary for a few seconds.</li>
+                <li><strong>Gate the replica by lag.</strong> If replay delay crosses a threshold, fail back to the primary until it catches up.</li>
+              </ul>
+              <p>The lag check itself is one query on the replica:</p>
+              <pre><code>SELECT now() - pg_last_xact_replay_timestamp() AS replica_lag;</code></pre>
+              <p>Expose that number to your application through a health check or a small periodic job, and make the read decision from the measured value. A threshold around one to two seconds is reasonable for most content pages; payment and inventory logic should not depend on the replica at all.</p>
+
+              <h2 id="sizing">Sizing pools with arithmetic, not vibes</h2>
+              <p>Pool sizing arguments usually end with someone saying &ldquo;just set it higher.&rdquo; The useful rule is simpler: server connections should match what Postgres can execute concurrently, not how many clients want to talk to it.</p>
+              <ul>
+                <li><strong>Client side:</strong> total worker threads &times; database aliases, plus deploy headroom.</li>
+                <li><strong>Server side:</strong> start around the number of CPU cores available to Postgres, then adjust for I/O wait. Twenty server connections per pool is a common starting point for a four-to-eight-core instance.</li>
+                <li><strong>Database budget:</strong> leave room under <code>max_connections</code> for migrations, monitoring, backups, and an admin shell. Running at 100% is not efficiency; it is a lockout waiting to happen.</li>
+              </ul>
+              <p>Watch <code>query_wait_timeout</code> and PgBouncer's <code>SHOW POOLS</code> output. A rising wait time means the server pool is too small for the request pattern, or that long transactions are holding connections. The second cause is more common than the first, and adding connections will not fix it.</p>
+
+              <h2 id="deploying">Deploying and monitoring the topology</h2>
+              <p>The shape I would deploy is intentionally boring:</p>
+              <pre><code>Django instances  ──▶  PgBouncer (primary)  ──▶  PostgreSQL primary
+                  └──▶  PgBouncer (replica)  ──▶  PostgreSQL replica</code></pre>
+              <p>Each Postgres node gets its own pooler on a private network. Run at least two PgBouncer processes behind an internal TCP load balancer so the pooler itself is not a single point of failure. Point Django only at the pooler hostnames, never directly at the database, and keep a separate direct connection available for migrations and emergency administration.</p>
+              <p>Monitor three layers: PgBouncer's <code>SHOW POOLS</code> and <code>SHOW STATS</code>, PostgreSQL's <code>pg_stat_activity</code> and replication lag, and your application's p95 latency. Alert on connection saturation, query wait time, and lag thresholds. Without those signals, the first symptom of a bad configuration is an outage, which is a terrible way to learn arithmetic.</p>
+
+              <h2 id="migration-path">A migration path you can actually follow</h2>
+              <ol>
+                <li><strong>Fix the query layer first.</strong> Enable <code>pg_stat_statements</code>, remove N+1 patterns, and add the indexes the slow query log asks for.</li>
+                <li><strong>Add PgBouncer in front of the primary.</strong> Use transaction mode, set <code>DISABLE_SERVER_SIDE_CURSORS</code>, and keep <code>CONN_MAX_AGE</code> modest.</li>
+                <li><strong>Add a replica.</strong> Keep all reads on the primary until the replica is stable and lag is observable.</li>
+                <li><strong>Move one read-heavy endpoint at a time.</strong> Use <code>.using("replica")</code>, measure, and keep the change reversible.</li>
+                <li><strong>Add lag-aware fallback.</strong> Route back to the primary when replay delay crosses the threshold you agreed on.</li>
+                <li><strong>Stay a monolith.</strong> Scale worker processes and the data tier horizontally before considering service extraction. Split services when team ownership or deployment cadence demands it, not because the database got busy.</li>
+              </ol>
+
+              <h2 id="when-not">When this is the wrong investment</h2>
+              <p>If your application idles at 15 database connections and p95 is under 200 milliseconds, you do not need replicas or a pooler. You need to keep an eye on growth and enjoy the quiet. Adding a replica doubles the database surface you must monitor, backup, and secure. Adding PgBouncer introduces a new failure domain and a new set of configuration traps.</p>
+              <p>Also be honest about consistency requirements. A write-heavy product with strict read-after-write behavior &mdash; payments, inventory, bookings &mdash; will get less value from replicas and more complexity. In those systems, the primary is doing the work for a reason, and the right next step is usually query optimization, partitioning, or a queue, not a second opinion.</p>
+              <p>Managed platforms change the calculus. If you deploy on a provider that already includes connection pooling, use that before running your own PgBouncer. The concepts in this article still apply, but the operational burden moves to someone else, which is often the correct trade for a small team.</p>
+
+              <h2 id="faq">FAQ</h2>
+              <h3 id="faq-django-replicas">Does Django support read replicas natively?</h3>
+              <p>Django does not manage PostgreSQL replication, but it supports multiple databases out of the box. You define a primary and a replica in <code>DATABASES</code>, then route reads explicitly with <code>.using()</code> or automatically with a database router.</p>
+
+              <h3 id="faq-pool-mode">Should PgBouncer use transaction or session mode with Django?</h3>
+              <p>Transaction mode suits most Django web applications because a server connection returns to the pool after each transaction. Session mode is safer for features that depend on session state, but it scales far worse. Statement mode breaks multi-statement transactions and is not suitable for typical Django apps.</p>
+
+              <h3 id="faq-replica-backup">Is a read replica a backup?</h3>
+              <p>No. A replica receives every change from the primary, including accidental deletes, and replication lag means it is not a point-in-time copy. Keep independent, tested backups.</p>
+
+              <h3 id="faq-lag">How do I know if replication lag is too high?</h3>
+              <p>Measure replay delay on the replica with <code>pg_last_xact_replay_timestamp()</code> and set a threshold that matches your product &mdash; usually one to two seconds for read-heavy pages. If lag crosses the threshold, route reads back to the primary.</p>
+
+              <h3 id="faq-serverless">Can I use PgBouncer with serverless PostgreSQL?</h3>
+              <p>Managed providers such as Neon and Supabase usually offer their own pooler. Use the provider pooler before adding your own PgBouncer, and check whether it runs in transaction mode, because that affects server-side cursors and prepared statements.</p>
+
+              <h2 id="closing">The goal is boring reliability</h2>
+              <p>Scaling Django beyond the monolith does not have to mean splitting the application into a fleet of services. In most projects I have worked on, the real win came from acknowledging that the database was doing too many jobs with too few boundaries: connections held open, reporting queries competing with writes, and no measurement to prove any of it.</p>
+              <p>Add pooling, add a replica, route deliberately, and watch the lag. The architecture stays familiar, the deployment stays small, and the product gets room to grow. If you are working through this on your own project, my <a href="../../services/">services page</a> describes how I approach backend and database work, or you can <a href="../../#contact">get in touch</a> with the specific bottleneck you are seeing.</p>
+            </div>
+
+            <aside class="sticky-rail">
+              <nav id="toc" aria-label="On this page">
+                <span class="rail-label">On this page</span>
+                <ol class="toc-list" id="toc-list"></ol>
+              </nav>
+            </aside>
+          </div>
+
+          <footer class="article-foot">
+            <div class="article-tags">
+              <span>Django</span>
+              <span>PostgreSQL</span>
+              <span>PgBouncer</span>
+              <span>Scaling</span>
+            </div>
+
+            <div class="author-box">
+              <img
+                class="avatar"
+                src="../../assets/abhishek-thakur-profile.jpeg"
+                alt="Portrait of Abhishek Thakur"
+                width="96"
+                height="120"
+                loading="lazy"
+                decoding="async"
+              />
+              <div>
+                <span class="author-name">Abhishek Thakur</span>
+                <span class="author-role">Software Engineer &middot; Full Stack Developer &middot; Lahan, Nepal</span>
+                <p class="author-bio">I take products from rough idea to reliable working experience &mdash; database schema, Django backend and REST API, React frontend and deployment. Currently completing a B.Tech in Computer Science at Parul University.</p>
+                <div class="author-links">
+                  <a href="../../about/">About me<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a>
+                  <a href="../../projects/">Projects<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a>
+                  <a href="../../#contact">Contact<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <nav class="pn-grid" aria-label="More articles">
+              <a class="pn-cell prev" href="../website-cost-nepal/">
+                <span class="pn-label">
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+                  Previous article
+                </span>
+                <h3>How Much Does a Website Cost in Nepal?</h3>
+              </a>
+              <div class="pn-placeholder">Latest article &mdash; new writing is on the way</div>
+            </nav>
+          </footer>
+        </article>
+      </div>
+
+      <div class="articles-shell">
+        <section class="related" id="related">
+          <span class="section-label">Keep reading</span>
+          <h2>Related articles</h2>
+
+          <div class="articles-grid related-grid">
+            <a class="card" href="../django-react-postgresql/">
+              <span class="label">Full stack</span>
+              <h2>Building Full-Stack Applications with Django, React and PostgreSQL</h2>
+              <p>How the backend, API, frontend and database layers fit together in the applications I build, and the lessons that keep them maintainable.</p>
+              <span class="card-date">Aug 28, 2026</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </a>
+            <a class="card" href="../how-i-built-lahan-hub/">
+              <span class="label">Project notes</span>
+              <h2>How I Built LAHAN Hub</h2>
+              <p>Scope, architecture and lessons from building a 21-application Django digital city ecosystem with PostgreSQL and Docker.</p>
+              <span class="card-date">Aug 18, 2026</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </a>
+          </div>
+        </section>
+
+        <div class="articles-cta">
+          <div>
+            <span class="section-label">Have a question?</span>
+            <h2>Let&rsquo;s turn an <em>idea</em> into a plan.</h2>
+            <p>Share what you are building and I&rsquo;ll help you identify the right technical and product decisions.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="cta-primary" href="../../#contact">Start a conversation
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+            </a>
+            <a class="cta-secondary" href="../../services/">Explore services</a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <span>&copy; 2026 Abhishek Thakur Barhi</span>
+        <a href="../../services/">Services</a>
+        <a href="../../projects/">Projects</a>
+        <a href="../" aria-current="page">Articles</a>
+        <a href="../../blog/">Blog</a>
+        <a href="#main"
+          >Back to top
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-arrow-up"></use></svg
+        ></a>
+      </footer>
+    </main>
+
+    <!-- Floating Bottom Navigation -->
+    <nav class="bottom-nav" aria-label="Primary navigation">
+      <a class="nav-item" href="../../" aria-label="Home">
+        <svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg>
+      </a>
+      <a class="nav-item" href="../../#about" aria-label="About">
+        <svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>
+      </a>
+      <a class="nav-item" href="../../services/" aria-label="Services">
+        <svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>
+      </a>
+      <a class="nav-item" href="../../projects/" aria-label="Projects">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+      </a>
+      <a class="nav-item active" href="../" aria-label="Articles" aria-current="page">
+        <svg class="icon" aria-hidden="true"><use href="#i-file-text"></use></svg>
+      </a>
+      <a class="nav-item" href="../../#contact" aria-label="Contact">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+      </a>
+    </nav>
+  </div>
+
+  <script src="../../script.js" defer></script>
+  <script src="../article.js" defer></script>
+</body>
+</html>

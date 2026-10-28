@@ -13,7 +13,8 @@
   <link rel="alternate" hreflang="x-default" href="https://abhishek-thakur.com.np/articles/">
   <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="48x48">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="../seo-pages.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="articles.css">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abhishek Thakur">
@@ -41,86 +42,471 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="page page-wide">
-    <header class="site-head">
-      <a class="brand" href="../">Abhishek Thakur</a>
-      <nav aria-label="Primary">
-        <a href="../">Home</a>
-        <a href="../about/">About</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true">
+    <defs>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="m17.66 17.66 1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="m6.34 17.66-1.41 1.41" />
+        <path d="m19.07 4.93-1.41 1.41" />
+      </symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+        <line x1="7" y1="17" x2="17" y2="7" />
+        <polyline points="7 7 17 7 17 17" />
+      </symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24">
+        <line x1="12" x2="12" y1="19" y2="5" />
+        <polyline points="5 12 12 5 19 12" />
+      </symbol>
+      <symbol id="i-home" viewBox="0 0 24 24">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </symbol>
+      <symbol id="i-user" viewBox="0 0 24 24">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
+      <symbol id="i-file-text" viewBox="0 0 24 24">
+        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+        <line x1="16" x2="8" y1="13" y2="13" />
+        <line x1="16" x2="8" y1="17" y2="17" />
+        <line x1="10" x2="8" y1="9" y2="9" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+      </symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24">
+        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+        <path d="M20 3v4" />
+        <path d="M22 5h-4" />
+        <path d="M4 17v2" />
+        <path d="M5 18H3" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="app">
+    <header class="site-header">
+      <a class="brand-logo" href="../" aria-label="Abhishek Thakur home">
+        <img
+          src="../assets/abhishek-thakur-logo.webp"
+          alt="Abhishek Thakur"
+          width="152"
+          height="100"
+        />
+      </a>
+      <nav class="top-nav" aria-label="Site navigation">
+        <a class="top-nav-link" href="../#about" data-target="about">About</a>
+        <a class="top-nav-link" href="../#capabilities" data-target="capabilities">Capabilities</a>
+        <a class="top-nav-link" href="../services/">Services</a>
+        <a class="top-nav-link" href="../projects/">Projects</a>
+        <a class="top-nav-link active" href="index.html" aria-current="page">Articles</a>
+        <a class="top-nav-link" href="../blog/">Blog</a>
+      </nav>
+      <div class="header-right">
+        <a class="top-nav-cta" href="../#contact">Start a project</a>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          aria-pressed="false"
+        >
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-moon"></use>
+          </svg>
+        </button>
+      </div>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="menu-backdrop" aria-hidden="true"></div>
+    <nav class="menu-drawer" id="site-menu" aria-label="Main navigation" aria-hidden="true" inert>
+      <div class="menu-drawer-header">
+        <span class="menu-drawer-kicker">Portfolio navigation</span>
+      </div>
+
+      <div class="menu-drawer-links">
+        <a class="menu-drawer-link" href="../services/">
+          <span class="menu-drawer-number" aria-hidden="true">01</span>
+          <span class="menu-drawer-copy">
+            <strong>Services</strong>
+            <span>What I can design, build, and ship</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+        <a class="menu-drawer-link" href="../projects/">
+          <span class="menu-drawer-number" aria-hidden="true">02</span>
+          <span class="menu-drawer-copy">
+            <strong>Projects</strong>
+            <span>Selected products and experiments</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+        <a class="menu-drawer-link" href="index.html" aria-current="page">
+          <span class="menu-drawer-number" aria-hidden="true">03</span>
+          <span class="menu-drawer-copy">
+            <strong>Articles</strong>
+            <span>Long-form engineering guides</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+        <a class="menu-drawer-link" href="../blog/">
+          <span class="menu-drawer-number" aria-hidden="true">04</span>
+          <span class="menu-drawer-copy">
+            <strong>Blog</strong>
+            <span>Nepal money, marketing & tech guides</span>
+          </span>
+          <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+      </div>
+
+      <div class="menu-drawer-footer">
+        <span class="menu-drawer-footnote">Have an idea worth building well?</span>
+        <a class="menu-drawer-cta" href="mailto:111abhishek.04367@gmail.com">
+          <span>Start a conversation</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+        </a>
+      </div>
+    </nav>
+
+    <main id="main" class="content-section">
+      <div class="articles-shell">
+        <h1>Engineering Notes & Articles</h1>
+        <p class="lede">Practical insights from my software engineering work, covering full-stack development, backend architecture, project case studies, and actionable guides for businesses in Nepal looking to establish and grow their online presence.</p>
+
+        <div class="articles-grid" aria-label="Published articles">
+          <a class="card" href="scaling-django-read-replicas-pgbouncer/">
+            <span class="label">Backend engineering</span>
+            <h2>Scaling Django Beyond Monoliths: Read Replicas and PgBouncer</h2>
+            <p>When one PostgreSQL database stops keeping up: how to measure the real bottleneck, add read replicas, and pool connections without breaking Django.</p>
+            <span class="card-foot">
+              <span class="card-meta"><time datetime="2026-10-27">Oct 27, 2026</time> &middot; 12 min read</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </span>
+          </a>
+          <a class="card" href="website-cost-nepal/">
+            <span class="label">Cost guide</span>
+            <h2>How Much Does a Website Cost in Nepal?</h2>
+            <p>An honest breakdown of the factors that drive website cost in Nepal, from simple business sites to full custom web applications &mdash; plus the costs people forget.</p>
+            <span class="card-foot">
+              <span class="card-meta"><time datetime="2026-09-01">Sep 1, 2026</time> &middot; 3 min read</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </span>
+          </a>
+          <a class="card" href="django-react-postgresql/">
+            <span class="label">Full stack</span>
+            <h2>Building Full-Stack Applications with Django, React and PostgreSQL</h2>
+            <p>How the database, API and frontend layers fit together in the applications I build, and the lessons that keep them maintainable long after launch.</p>
+            <span class="card-foot">
+              <span class="card-meta"><time datetime="2026-08-28">Aug 28, 2026</time> &middot; 3 min read</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </span>
+          </a>
+          <a class="card" href="website-development-lahan-guide/">
+            <span class="label">Local guide</span>
+            <h2>Website Development in Lahan: A Practical Guide for Local Businesses</h2>
+            <p>What a business in Lahan or elsewhere in Nepal should know before commissioning a website &mdash; types of sites, what matters locally, and common mistakes.</p>
+            <span class="card-foot">
+              <span class="card-meta"><time datetime="2026-08-25">Aug 25, 2026</time> &middot; 3 min read</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </span>
+          </a>
+          <a class="card" href="how-i-built-lahan-hub/">
+            <span class="label">Project notes</span>
+            <h2>How I Built LAHAN Hub</h2>
+            <p>Scope, architecture and lessons from building a 21-application Django digital city ecosystem with PostgreSQL and Docker.</p>
+            <span class="card-foot">
+              <span class="card-meta"><time datetime="2026-08-18">Aug 18, 2026</time> &middot; 3 min read</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </span>
+          </a>
+          <a class="card" href="how-i-built-my-blind-assistance-system/">
+            <span class="label">Computer vision</span>
+            <h2>How I Built My Blind Assistance System</h2>
+            <p>A practical look at combining Python, OpenCV and Raspberry Pi for object detection, distance sensing and voice alerts in an assistive device.</p>
+            <span class="card-foot">
+              <span class="card-meta"><time datetime="2026-08-05">Aug 5, 2026</time> &middot; 3 min read</span>
+              <span class="card-action">Read article<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </span>
+          </a>
+        </div>
+
+        <p class="articles-support">Every published article here is written by <a href="../about/">me</a>, based on real projects &mdash; no filler content. If you want this kind of thinking applied to your product, see my <a href="../services/">services</a> or <a href="../#contact">get in touch</a>.</p>
+      </div>
+
+      <div class="articles-shell">
+        <section class="article-library" aria-labelledby="article-library-title">
+          <span class="section-label">100 guides planned</span>
+          <h2 id="article-library-title">The full article library</h2>
+          <p class="library-intro">Ten phases of writing, from backend architecture to practical tutorials. Published guides are marked; the rest are working outlines that will be expanded into full articles. Expand a phase to see its guides.</p>
+          <details class="library-group" open>
+            <summary>
+              <span class="library-phase">Phase 01</span>
+              <span class="library-name">Full-Stack Architecture &amp; Backend Engineering (Django, Flask &amp; Node.js)</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="scaling-django-read-replicas-pgbouncer/">Scaling Django Beyond Monoliths</a><span class="library-status is-published">Published</span></li>
+              <li><a href="advanced-django-orm-optimization/">Advanced ORM Optimization</a><span class="library-status">Outline</span></li>
+              <li><a href="asynchronous-python-celery-redis-websockets/">Asynchronous Python</a><span class="library-status">Outline</span></li>
+              <li><a href="building-robust-rest-apis-django-drf/">Building Robust REST APIs</a><span class="library-status">Outline</span></li>
+              <li><a href="flask-vs-django-2026/">Flask vs. Django in 2026</a><span class="library-status">Outline</span></li>
+              <li><a href="zero-downtime-postgresql-migrations/">Database Migration Strategies</a><span class="library-status">Outline</span></li>
+              <li><a href="secure-authentication-rbac-mfa/">Secure User Authentication &amp; Authorization</a><span class="library-status">Outline</span></li>
+              <li><a href="redis-caching-strategies-django/">Caching Strategies</a><span class="library-status">Outline</span></li>
+              <li><a href="error-tracking-logging-sentry/">Error Tracking &amp; Logging</a><span class="library-status">Outline</span></li>
+              <li><a href="api-rate-limiting-security/">API Rate Limiting &amp; Security</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 02</span>
+              <span class="library-name">Frontend Engineering &amp; Modern UI (React, Tailwind &amp; Performance)</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="react-state-management-comparison/">State Management Battle</a><span class="library-status">Outline</span></li>
+              <li><a href="optimizing-react-performance/">Optimizing React Performance</a><span class="library-status">Outline</span></li>
+              <li><a href="building-design-systems-tailwind/">Building Design Systems</a><span class="library-status">Outline</span></li>
+              <li><a href="ssr-vs-csr-rendering-strategies/">Server-Side Rendering vs. Client-Side Rendering</a><span class="library-status">Outline</span></li>
+              <li><a href="responsive-dashboards-mobile/">Responsive Design Realities</a><span class="library-status">Outline</span></li>
+              <li><a href="react-hook-form-zod-validation/">Client-Side Form Validation &amp; UX</a><span class="library-status">Outline</span></li>
+              <li><a href="optimizing-asset-delivery-webp-avif/">Optimizing Asset Delivery</a><span class="library-status">Outline</span></li>
+              <li><a href="building-progressive-web-apps/">Building Progressive Web Apps (PWAs)</a><span class="library-status">Outline</span></li>
+              <li><a href="end-to-end-type-safety-openapi/">End-to-End Type Safety</a><span class="library-status">Outline</span></li>
+              <li><a href="micro-frontends-react-modules/">Micro-Frontends</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 03</span>
+              <span class="library-name">DevOps, Deployment &amp; Infrastructure</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="zero-cost-production-hosting/">Zero-Cost Production Hosting</a><span class="library-status">Outline</span></li>
+              <li><a href="dockerizing-full-stack-apps/">Dockerizing Full-Stack Apps</a><span class="library-status">Outline</span></li>
+              <li><a href="cloudflare-tunnels-reverse-proxies/">Cloudflare Tunnels &amp; Reverse Proxies</a><span class="library-status">Outline</span></li>
+              <li><a href="github-actions-ci-cd-pipelines/">CI/CD Pipelines on GitHub Actions</a><span class="library-status">Outline</span></li>
+              <li><a href="linux-server-hardening/">Linux Server Hardening</a><span class="library-status">Outline</span></li>
+              <li><a href="automated-postgresql-backups/">Automated Database Backups</a><span class="library-status">Outline</span></li>
+              <li><a href="ssl-tls-certificate-management/">SSL/TLS Certificate Management</a><span class="library-status">Outline</span></li>
+              <li><a href="monitoring-server-health/">Monitoring Server Health</a><span class="library-status">Outline</span></li>
+              <li><a href="environment-variable-security/">Environment Variable Security</a><span class="library-status">Outline</span></li>
+              <li><a href="cdn-configuration-cloudflare/">CDN Configuration</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 04</span>
+              <span class="library-name">Artificial Intelligence &amp; Computer Vision Projects</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="edge-ai-raspberry-pi-yolov8/">Edge AI on Raspberry Pi</a><span class="library-status">Outline</span></li>
+              <li><a href="real-time-speech-to-text-tts/">Real-Time Speech-to-Text &amp; TTS</a><span class="library-status">Outline</span></li>
+              <li><a href="multimodal-emotion-detection/">Multimodal Emotion Detection</a><span class="library-status">Outline</span></li>
+              <li><a href="retrieval-augmented-generation-rag/">Retrieval-Augmented Generation (RAG)</a><span class="library-status">Outline</span></li>
+              <li><a href="fine-tuning-llms-lora/">Fine-Tuning Open-Source LLMs</a><span class="library-status">Outline</span></li>
+              <li><a href="optimizing-python-inference-onnx/">Optimizing Python Inference</a><span class="library-status">Outline</span></li>
+              <li><a href="building-ai-agents/">Building AI Agents</a><span class="library-status">Outline</span></li>
+              <li><a href="computer-vision-agriculture/">Computer Vision for Agriculture</a><span class="library-status">Outline</span></li>
+              <li><a href="ocr-pipelines-nepali-text/">OCR Pipelines for Nepali Text</a><span class="library-status">Outline</span></li>
+              <li><a href="evaluating-ai-hallucinations/">Evaluating AI Hallucinations</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 05</span>
+              <span class="library-name">Software Engineering Career, Workflow &amp; Productivity</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="m1-mac-developer-setup/">The M1 Mac Developer Setup</a><span class="library-status">Outline</span></li>
+              <li><a href="git-workflow-masterclass/">Git Workflow Masterclass</a><span class="library-status">Outline</span></li>
+              <li><a href="writing-readable-code/">Writing Readable Code</a><span class="library-status">Outline</span></li>
+              <li><a href="documentation-as-code/">Documentation as Code</a><span class="library-status">Outline</span></li>
+              <li><a href="database-indexing-strategies/">Database Indexing Strategies</a><span class="library-status">Outline</span></li>
+              <li><a href="debugging-complex-bugs/">Debugging Complex Bugs</a><span class="library-status">Outline</span></li>
+              <li><a href="writing-technical-articles/">Writing Technical Articles</a><span class="library-status">Outline</span></li>
+              <li><a href="open-source-contributions/">Open Source Contributions</a><span class="library-status">Outline</span></li>
+              <li><a href="time-management-solo-developers/">Time Management for Solo Developers</a><span class="library-status">Outline</span></li>
+              <li><a href="building-developer-portfolio/">Building a Developer Portfolio</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 06</span>
+              <span class="library-name">Local Tech, Digital Transformation &amp; Business Guides (Nepal Focus)</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="digital-payments-nepal-esewa-khalti/">Digital Payments in Nepal</a><span class="library-status">Outline</span></li>
+              <li><a href="domain-registration-hosting-nepal/">Domain Registration &amp; Hosting in Nepal</a><span class="library-status">Outline</span></li>
+              <li><a href="ecommerce-small-retailers-nepal/">E-Commerce for Small Retailers</a><span class="library-status">Outline</span></li>
+              <li><a href="bridging-digital-divide-lightweight-web/">Bridging the Digital Divide</a><span class="library-status">Outline</span></li>
+              <li><a href="software-pricing-strategies-nepal/">Software Pricing Strategies in Nepal</a><span class="library-status">Outline</span></li>
+              <li><a href="cybersecurity-small-businesses/">Cybersecurity for Small Businesses</a><span class="library-status">Outline</span></li>
+              <li><a href="building-local-service-directories/">Building Local Service Directories</a><span class="library-status">Outline</span></li>
+              <li><a href="automating-government-compliance/">Automating Government Compliance</a><span class="library-status">Outline</span></li>
+              <li><a href="sms-whatsapp-business-api/">SMS &amp; WhatsApp Business API Integration</a><span class="library-status">Outline</span></li>
+              <li><a href="freelance-blueprint-students/">The Freelance Blueprint</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 07</span>
+              <span class="library-name">Deep-Dive Project Case Studies &amp; Engineering Breakdowns</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="inside-necexam-prep/">Inside NECExam Prep</a><span class="library-status">Outline</span></li>
+              <li><a href="building-lafzverse/">Building Lafzverse</a><span class="library-status">Outline</span></li>
+              <li><a href="universal-media-downloader-flask/">Universal Media Downloader</a><span class="library-status">Outline</span></li>
+              <li><a href="building-12v-diy-ups/">Building a 12V DIY UPS</a><span class="library-status">Outline</span></li>
+              <li><a href="designing-community-portal-nepal/">Designing a Community Portal</a><span class="library-status">Outline</span></li>
+              <li><a href="ai-storytelling-engines/">Creating AI Storytelling Engines</a><span class="library-status">Outline</span></li>
+              <li><a href="optimizing-it-support-workflows/">Optimizing IT Support Workflows</a><span class="library-status">Outline</span></li>
+              <li><a href="real-time-leaderboards-redis/">Real-Time Leaderboards</a><span class="library-status">Outline</span></li>
+              <li><a href="custom-analytics-dashboard/">Building a Custom Analytics Dashboard</a><span class="library-status">Outline</span></li>
+              <li><a href="migrating-legacy-codebases/">Migrating Legacy Codebases</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 08</span>
+              <span class="library-name">Advanced Computer Science &amp; Systems Engineering</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="websockets-vs-server-sent-events/">Understanding WebSockets vs. Server-Sent Events</a><span class="library-status">Outline</span></li>
+              <li><a href="concurrency-vs-parallelism-python-gil/">Concurrency vs. Parallelism</a><span class="library-status">Outline</span></li>
+              <li><a href="memory-management-python/">Memory Management in Python</a><span class="library-status">Outline</span></li>
+              <li><a href="network-troubleshooting-101/">Network Troubleshooting 101</a><span class="library-status">Outline</span></li>
+              <li><a href="database-transaction-isolation-levels/">Database Transaction Isolation Levels</a><span class="library-status">Outline</span></li>
+              <li><a href="unit-integration-testing-pytest-jest/">Writing Unit and Integration Tests</a><span class="library-status">Outline</span></li>
+              <li><a href="web-security-fundamentals-csrf-ssrf/">Web Security Fundamentals</a><span class="library-status">Outline</span></li>
+              <li><a href="building-cli-tools-python/">Building CLI Tools in Python</a><span class="library-status">Outline</span></li>
+              <li><a href="http2-http3-performance/">Understanding HTTP/2 and HTTP/3</a><span class="library-status">Outline</span></li>
+              <li><a href="data-structures-web-development/">Data Structures in Web Development</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 09</span>
+              <span class="library-name">Emerging Tech &amp; Future Architecture</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="agentic-workflows-web-apps/">Agentic Workflows in Web Apps</a><span class="library-status">Outline</span></li>
+              <li><a href="webassembly-in-practice/">WebAssembly (Wasm) in Practice</a><span class="library-status">Outline</span></li>
+              <li><a href="spatial-computing-web3d/">Spatial Computing &amp; Web3D</a><span class="library-status">Outline</span></li>
+              <li><a href="edge-computing-architecture/">Edge Computing Architecture</a><span class="library-status">Outline</span></li>
+              <li><a href="serverless-postgresql/">Serverless PostgreSQL</a><span class="library-status">Outline</span></li>
+              <li><a href="vector-databases-explained/">Vector Databases Explained</a><span class="library-status">Outline</span></li>
+              <li><a href="local-first-software-crdts/">Building Local-First Software</a><span class="library-status">Outline</span></li>
+              <li><a href="green-software-engineering/">Green Software Engineering</a><span class="library-status">Outline</span></li>
+              <li><a href="api-first-design-principles/">API-First Design Principles</a><span class="library-status">Outline</span></li>
+              <li><a href="future-of-full-stack-development/">The Future of Full-Stack Development</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+          <details class="library-group">
+            <summary>
+              <span class="library-phase">Phase 10</span>
+              <span class="library-name">Practical Tutorials &amp; Quick-Fire Guides</span>
+              <span class="library-count">10 guides</span>
+            </summary>
+            <ul class="library-list">
+              <li><a href="tailwind-css-with-flask/">Setting Up Tailwind CSS with Flask</a><span class="library-status">Outline</span></li>
+              <li><a href="secure-file-uploads/">Handling File Uploads Securely</a><span class="library-status">Outline</span></li>
+              <li><a href="custom-markdown-parser/">Building a Custom Markdown Parser</a><span class="library-status">Outline</span></li>
+              <li><a href="dynamic-pdf-generation/">Dynamic PDF Generation</a><span class="library-status">Outline</span></li>
+              <li><a href="implementing-dark-mode/">Implementing Dark Mode</a><span class="library-status">Outline</span></li>
+              <li><a href="pagination-sorting-filtering-react/">Pagination, Sorting, and Filtering</a><span class="library-status">Outline</span></li>
+              <li><a href="automated-postgresql-backups-cron/">Setting Up Automated Backups</a><span class="library-status">Outline</span></li>
+              <li><a href="writing-effective-readmes/">Writing Effective READMEs</a><span class="library-status">Outline</span></li>
+              <li><a href="handling-timezones-correctly/">Handling Timezones Correctly</a><span class="library-status">Outline</span></li>
+              <li><a href="minimalist-analytics-tracker/">Building a Minimalist Analytics Tracker</a><span class="library-status">Outline</span></li>
+            </ul>
+          </details>
+        </section>
+      </div>
+
+      <div class="articles-shell">
+        <div class="articles-cta">
+          <div>
+            <span class="section-label">Have a question?</span>
+            <h2>Let&rsquo;s turn an <em>idea</em> into a plan.</h2>
+            <p>Share what you are building and I&rsquo;ll help you identify the right technical and product decisions.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="cta-primary" href="../#contact">Start a conversation
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+            </a>
+            <a class="cta-secondary" href="../services/">Explore services</a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <span>&copy; 2026 Abhishek Thakur Barhi</span>
         <a href="../services/">Services</a>
         <a href="../projects/">Projects</a>
-        <a href="../articles/" aria-current="page">Articles</a>
-        <a href="../Blogs/">Blogs</a>
-        <a href="../skills/">Skills</a>
-        <a href="../education/">Education</a>
-        <a href="../#contact">Contact</a>
-      </nav>
-    </header>
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <ol>
-      <li><a href="../">Home</a></li>
-      <li><span aria-current="page">Articles</span></li>
-      </ol>
-    </nav>
-    <main id="main">
-      <span class="label">05 / Articles</span>
-      <h1>Engineering Notes &amp; Articles</h1>
-      <p class="lede">First-hand writing from my software engineering work: how projects were built, how I structure full-stack applications, and practical guides for businesses in Nepal getting online.</p>
-
-      <div class="grid articles-grid">
-        <a class="card card-link" href="website-development-lahan-guide/">
-          <span class="label">Local guide</span>
-          <h2>Website Development in Lahan: A Practical Guide for Local Businesses</h2>
-          <p>What a business in Lahan or elsewhere in Nepal should know before commissioning a website &mdash; types of sites, what matters, and common mistakes.</p>
-          <span class="card-action">Read article</span>
-        </a>
-        <a class="card card-link" href="website-cost-nepal/">
-          <span class="label">Cost guide</span>
-          <h2>How Much Does a Website Cost in Nepal?</h2>
-          <p>An honest breakdown of the factors that drive website cost in Nepal, from simple business sites to full custom web applications.</p>
-          <span class="card-action">Read article</span>
-        </a>
-        <a class="card card-link" href="how-i-built-lahan-hub/">
-          <span class="label">Project notes</span>
-          <h2>How I Built LAHAN Hub</h2>
-          <p>Scope, architecture and lessons from building a 21-application Django digital city ecosystem with PostgreSQL and Docker.</p>
-          <span class="card-action">Read article</span>
-        </a>
-        <a class="card card-link" href="how-i-built-my-blind-assistance-system/">
-          <span class="label">Computer vision</span>
-          <h2>How I Built My Blind Assistance System</h2>
-          <p>A practical look at combining Python, OpenCV and Raspberry Pi for object detection, distance sensing and voice alerts.</p>
-          <span class="card-action">Read article</span>
-        </a>
-        <a class="card card-link" href="django-react-postgresql/">
-          <span class="label">Full stack</span>
-          <h2>Building Full-Stack Applications with Django, React and PostgreSQL</h2>
-          <p>How the backend, API, frontend and database layers fit together in the applications I build, and the lessons that keep them maintainable.</p>
-          <span class="card-action">Read article</span>
-        </a>
-      </div>
-
-      <p>Everything here is written by <a href="../about/">me</a>, based on real projects &mdash; no filler content. If you want this kind of thinking applied to your product, see my <a href="../services/">services</a> or <a href="../#contact">get in touch</a>.</p>
-
-      <div class="cta">
-        <div>
-          <span class="label">Have a question?</span>
-          <h2>Let’s turn an idea into a plan.</h2>
-          <p>Share what you are building and I’ll help you identify the right technical and product decisions.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="cta-primary" href="../#contact">Start a conversation</a>
-          <a class="cta-secondary" href="../services/">Explore services</a>
-        </div>
-      </div>
+        <a href="index.html" aria-current="page">Articles</a>
+        <a href="../blog/">Blog</a>
+        <a href="#main"
+          >Back to top
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-arrow-up"></use></svg
+        ></a>
+      </footer>
     </main>
-    <footer class="site-foot">
-      <span>&copy; 2026 Abhishek Thakur &middot; Lahan, Nepal</span>
-      <a href="https://github.com/1abhishek0948" rel="noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/abhishek0948/" rel="noreferrer">LinkedIn</a>
-      <a href="mailto:111abhishek.04367@gmail.com">Email</a>
-    </footer>
+
+    <!-- Floating Bottom Navigation -->
+    <nav class="bottom-nav" aria-label="Primary navigation">
+      <a class="nav-item" href="../" aria-label="Home">
+        <svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg>
+      </a>
+      <a class="nav-item" href="../#about" aria-label="About">
+        <svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>
+      </a>
+      <a class="nav-item" href="../services/" aria-label="Services">
+        <svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>
+      </a>
+      <a class="nav-item" href="../projects/" aria-label="Projects">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+      </a>
+      <a class="nav-item active" href="index.html" aria-label="Articles" aria-current="page">
+        <svg class="icon" aria-hidden="true"><use href="#i-file-text"></use></svg>
+      </a>
+      <a class="nav-item" href="../#contact" aria-label="Contact">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+      </a>
+    </nav>
   </div>
+
+  <script src="../script.js" defer></script>
 </body>
 </html>

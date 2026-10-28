@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
 
     <title>
       Abhishek Thakur | Software Engineer &amp; Full Stack Developer
@@ -121,6 +122,11 @@
             "name": "Abhishek Thakur",
             "description": "Official portfolio of Abhishek Thakur, Software Engineer and Full Stack Developer from Nepal offering web development, SaaS, custom software, API and AI integration services.",
             "inLanguage": "en",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://abhishek-thakur.com.np/blog/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            },
             "publisher": { "@id": "https://abhishek-thakur.com.np/#person" }
           },
           {
@@ -535,25 +541,54 @@
     </svg>
 
     <main class="app" id="main-content">
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="site-menu"
-      >
-        <span></span><span></span><span></span>
-      </button>
-      <button
-        class="theme-toggle"
-        type="button"
-        aria-label="Switch to dark mode"
-        aria-pressed="false"
-      >
-        <svg class="icon" aria-hidden="true" aria-hidden="true">
-          <use href="#i-moon"></use>
-        </svg>
-      </button>
+      <header class="site-header">
+        <a class="brand-logo" href="./" aria-label="Abhishek Thakur home">
+          <img
+            src="assets/abhishek-thakur-logo.webp"
+            alt="Abhishek Thakur"
+            width="152"
+            height="100"
+          />
+        </a>
+        <nav class="top-nav" aria-label="Site navigation">
+          <a class="top-nav-link" href="#about" data-target="about">About</a>
+          <a class="top-nav-link" href="#capabilities" data-target="capabilities"
+            >Capabilities</a
+          >
+          <a class="top-nav-link" href="#services" data-target="services"
+            >Services</a
+          >
+          <a class="top-nav-link" href="#projects" data-target="projects"
+            >Projects</a
+          >
+          <a class="top-nav-link" href="articles/">Articles</a>
+          <a class="top-nav-link" href="blog/">Blog</a>
+        </nav>
+        <div class="header-right">
+          <a class="top-nav-cta" href="#contact" data-target="contact"
+            >Start a project</a
+          >
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+          >
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-moon"></use>
+            </svg>
+          </button>
+        </div>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
 
       <div class="menu-backdrop" aria-hidden="true"></div>
       <nav class="menu-drawer" id="site-menu" aria-label="Main navigation" aria-hidden="true" inert>
@@ -586,11 +621,11 @@
             </span>
             <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
           </a>
-          <a class="menu-drawer-link" href="Blogs/">
+          <a class="menu-drawer-link" href="blog/">
             <span class="menu-drawer-number" aria-hidden="true">04</span>
             <span class="menu-drawer-copy">
-              <strong>Blogs</strong>
-              <span>Short notes and fresh thinking</span>
+              <strong>Blog</strong>
+              <span>Nepal money, marketing & tech guides</span>
             </span>
             <svg class="icon menu-drawer-arrow" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
           </a>
@@ -607,96 +642,113 @@
 
       <!-- Profile Section -->
       <section class="hero" id="home">
-        <a class="hero-logo" href="./" aria-label="Abhishek Thakur home">
-          <img
-            src="assets/abhishek-thakur-logo.webp"
-            alt="Abhishek Thakur"
-            width="152"
-            height="100"
-          />
-        </a>
+        <div class="hero-media">
+          <!-- Profile image -->
+          <div class="profile-wrapper">
+            <img
+              src="assets/abhishek-thakur-barhi.webp"
+              alt="Portrait of Abhishek Thakur"
+              class="profile-image"
+              width="395"
+              height="395"
+              fetchpriority="high"
+            />
+          </div>
 
-        <!-- Profile image -->
-        <div class="profile-wrapper">
-          <!-- <div class="profile-bg"></div> -->
-
-          <img
-            src="assets/abhishek-thakur-barhi.webp"
-            alt="Portrait of Abhishek Thakur"
-            class="profile-image"
-            width="395"
-            height="395"
-            fetchpriority="high"
-          />
-        </div>
-
-        <h1>Abhishek Thakur</h1>
-
-        <h2>
-          Software Engineer &amp; Full Stack Developer from Nepal<br /><span
-            class="hero-stack"
-            >Django · React · PostgreSQL · REST APIs</span
-          >
-        </h2>
-
-        <div class="hero-copy-stack">
-          <p class="intro">
-            I design, build, and deploy user-focused web apps with
-            Python, Django, React, PostgreSQL,REST APIs FastAPI. I enjoy taking
-            products from a rough idea to a reliable, working experience.
-          </p>
-
-          <!-- CV button -->
-          <a
-            class="cv-button"
-            href="assets/Abhishek_Thakur_Resume_.pdf"
-            download
-          >
-            Download resume
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-download"></use>
-            </svg>
-          </a>
-
-          <div class="hero-traits" aria-label="Professional qualities">
-            <span>Creative</span><span>|</span><span>Reliable</span
-            ><span>|</span><span>Efficient</span><span>|</span
-            ><span>Detail-Oriented</span>
+          <!-- Social links -->
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/abhishek0948/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg class="icon icon-fill" aria-hidden="true">
+                <use href="#i-linkedin"></use>
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/1abhishek0948/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+            >
+              <svg class="icon icon-fill" aria-hidden="true">
+                <use href="#i-instagram"></use>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/1abhishek0948"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <svg class="icon icon-fill" aria-hidden="true">
+                <use href="#i-github"></use>
+              </svg>
+            </a>
           </div>
         </div>
 
-        <!-- Social links -->
-        <div class="social-links">
-          <a
-            href="https://www.linkedin.com/in/abhishek0948/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-          >
-            <svg class="icon icon-fill" aria-hidden="true">
-              <use href="#i-linkedin"></use>
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/1abhishek0948/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-          >
-            <svg class="icon icon-fill" aria-hidden="true">
-              <use href="#i-instagram"></use>
-            </svg>
-          </a>
-          <a
-            href="https://github.com/1abhishek0948"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-          >
-            <svg class="icon icon-fill" aria-hidden="true">
-              <use href="#i-github"></use>
-            </svg>
-          </a>
+        <div class="hero-body">
+          <h1>
+            <span class="hero-word-mask"><span class="hero-word">Abhishek Thakur</span></span>
+            <!-- <span class="hero-word-mask"><span class="hero-word"></span></span> -->
+          </h1>
+
+          <h2>
+            Software Engineer &amp; Full Stack Developer from Nepal<br /><span
+              class="hero-stack"
+              >Django · React · PostgreSQL · REST APIs</span
+            >
+          </h2>
+
+          <div class="hero-copy-stack">
+            <p class="intro">
+              I design, build, and deploy user-focused web apps with Python,
+              Django, React, PostgreSQL, REST APIs and FastAPI. I enjoy taking
+              products from a rough idea to a reliable, working experience.
+            </p>
+
+            <!-- Hero actions -->
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">
+                Start a project
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow-up-right"></use>
+                </svg>
+              </a>
+              <a
+                class="btn btn-ghost cv-button"
+                href="assets/Abhishek_Thakur_Resume_.pdf"
+                download
+              >
+                Download resume
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-download"></use>
+                </svg>
+              </a>
+            </div>
+
+            <div class="hero-traits" aria-label="Professional qualities">
+              <span class="trait-chip">
+                <svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>
+                Creative
+              </span>
+              <span class="trait-chip">
+                <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+                Reliable
+              </span>
+              <span class="trait-chip">
+                <svg class="icon" aria-hidden="true"><use href="#i-signal"></use></svg>
+                Efficient
+              </span>
+              <span class="trait-chip">
+                <svg class="icon" aria-hidden="true"><use href="#i-file-text"></use></svg>
+                Detail-Oriented
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1104,12 +1156,12 @@
           <div class="services-cta-actions">
             <a class="service-cta-primary" href="#contact"
               >Start a Project
-              <svg class="icon" aria-hidden="true" aria-hidden="true">
+              <svg class="icon" aria-hidden="true">
                 <use href="#i-arrow-up-right"></use></svg
             ></a>
             <a class="service-cta-secondary" href="#projects"
               >View My Work
-              <svg class="icon" aria-hidden="true" aria-hidden="true">
+              <svg class="icon" aria-hidden="true">
                 <use href="#i-arrow-down"></use></svg
             ></a>
           </div>
@@ -1303,7 +1355,7 @@
             aria-controls="more-projects-content"
           >
             <span>More Projects</span
-            ><svg class="icon" aria-hidden="true" aria-hidden="true">
+            ><svg class="icon" aria-hidden="true">
               <use href="#i-plus"></use>
             </svg>
           </button>
@@ -1322,7 +1374,7 @@
                   Community and local information platform with a responsive
                   interface.
                 </p>
-                <svg class="icon" aria-hidden="true" aria-hidden="true">
+                <svg class="icon" aria-hidden="true">
                   <use href="#i-arrow-up-right"></use>
                 </svg>
               </button>
@@ -1339,7 +1391,7 @@
                   Experiment exploring AI-driven intelligent digital
                   interaction.
                 </p>
-                <svg class="icon" aria-hidden="true" aria-hidden="true">
+                <svg class="icon" aria-hidden="true">
                   <use href="#i-arrow-up-right"></use>
                 </svg>
               </button>
@@ -1356,7 +1408,7 @@
                   Web-based video and playlist downloader with a responsive
                   interface.
                 </p>
-                <svg class="icon" aria-hidden="true" aria-hidden="true">
+                <svg class="icon" aria-hidden="true">
                   <use href="#i-arrow-up-right"></use>
                 </svg>
               </button>
@@ -1373,7 +1425,7 @@
                   Real-time assistive computer vision with distance sensing and
                   voice alerts.
                 </p>
-                <svg class="icon" aria-hidden="true" aria-hidden="true">
+                <svg class="icon" aria-hidden="true">
                   <use href="#i-arrow-up-right"></use>
                 </svg>
               </button>
@@ -1390,7 +1442,7 @@
                   AI-powered interactive storytelling with dynamic narratives
                   and branching experiences.
                 </p>
-                <svg class="icon" aria-hidden="true" aria-hidden="true">
+                <svg class="icon" aria-hidden="true">
                   <use href="#i-arrow-up-right"></use>
                 </svg>
               </button>
@@ -1596,7 +1648,7 @@
         <a href="services/">Services</a>
         <a href="projects/">Projects</a>
         <a href="articles/">Articles</a>
-        <a href="Blogs/">Blogs</a>
+        <a href="blog/">Blog</a>
         <a href="#home"
           >Back to top
           <svg class="icon" aria-hidden="true">

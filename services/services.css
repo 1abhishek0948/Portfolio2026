@@ -1,0 +1,485 @@
+/* ============================================================
+   Services page — matches home page design language (style.css)
+   ============================================================ */
+
+/* ---------- Layout shell ---------- */
+.services-shell {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Tighten the space between the sticky top nav and the page content.
+   style.css reserves clamp(76px, 9vw, 128px) for full-width home sections;
+   standalone pages only need breathing room, not a hero-scale gap. */
+@media (min-width: 1024px) {
+  .content-section {
+    padding-top: clamp(22px, 2.5vw, 38px);
+    padding-bottom: clamp(56px, 7vw, 96px);
+  }
+}
+
+/* ---------- Header block ---------- */
+.services-shell .section-label {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.services-shell h1 {
+  max-width: 760px;
+  font-size: clamp(36px, 4.6vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  font-weight: 900;
+}
+
+.services-shell h1 span {
+  color: var(--accent-text);
+}
+
+.services-shell .lede {
+  max-width: 660px;
+  margin-top: 20px;
+  color: var(--section-copy);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.services-intro {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs {
+  margin-bottom: 26px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font:
+    400 11px "DM Mono",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--muted);
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent-text);
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--ink);
+}
+
+/* ---------- Stats strip (home hairline-grid style) ---------- */
+.services-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 44px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.services-stats div {
+  padding: 20px 22px;
+  background: var(--surface);
+}
+
+.services-stats dt {
+  margin: 0;
+  color: var(--ink);
+  font:
+    700 clamp(22px, 2.6vw, 30px) "Space Grotesk",
+    Inter,
+    sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.services-stats dd {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font:
+    400 10px "DM Mono",
+    monospace;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* ---------- Services grid (home hairline-grid card style) ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 40px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 210px;
+  padding: 30px 30px 26px;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    translate 0.25s var(--ease-out);
+}
+
+.service-card:hover {
+  position: relative;
+  z-index: 1;
+  translate: 0 -5px;
+  background: var(--paper);
+  box-shadow: var(--shadow-2);
+}
+
+.service-card .label {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--accent-text);
+  font:
+    500 10px "DM Mono",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.service-card h2 {
+  max-width: 520px;
+  font-size: 21px;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  transition: color 0.2s;
+}
+
+.service-card p {
+  max-width: 460px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.service-card .card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 22px;
+  color: var(--ink);
+  font:
+    600 10.5px "DM Mono",
+    monospace;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.service-card .card-action .icon {
+  font-size: 12px;
+  transition: translate 0.2s var(--ease-out);
+}
+
+.service-card:hover .card-action {
+  color: var(--accent-text);
+}
+
+.service-card:hover .card-action .icon {
+  translate: 2px -2px;
+}
+
+/* ---------- Prose sections ---------- */
+.services-prose {
+  max-width: 720px;
+  margin-top: 64px;
+}
+
+.services-prose h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+}
+
+.services-prose p {
+  margin-top: 14px;
+  color: var(--section-copy);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.services-prose strong {
+  color: var(--ink);
+}
+
+.services-prose a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.services-prose a:hover {
+  color: var(--accent-text);
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Process list ---------- */
+.process-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 28px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.process-list div {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 24px 26px;
+  background: var(--surface);
+}
+
+.process-list span {
+  color: var(--accent-text);
+  font:
+    600 11px "DM Mono",
+    monospace;
+  letter-spacing: 0.6px;
+  padding-top: 3px;
+}
+
+.process-list strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.process-list p {
+  margin: 0 !important;
+  color: var(--muted) !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+}
+
+/* ---------- Pricing note ---------- */
+.pricing-note {
+  margin-top: 28px;
+  padding: 26px 28px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.pricing-note h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pricing-note h3::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+
+.pricing-note p {
+  margin: 0 !important;
+}
+
+/* ---------- CTA band (home services-cta style) ---------- */
+.services-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  margin-top: 72px;
+  padding: clamp(30px, 4vw, 46px);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.services-cta .section-label {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--accent);
+}
+
+.services-cta h2 {
+  max-width: 460px;
+  font-size: clamp(25px, 2.8vw, 38px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.services-cta h2 em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.services-cta p {
+  max-width: 420px;
+  margin-top: 14px;
+  color: color-mix(in srgb, var(--paper) 72%, transparent);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.services-cta .cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex: none;
+}
+
+.services-cta .cta-primary,
+.services-cta .cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 18px;
+  font:
+    600 10.5px "DM Mono",
+    monospace;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    translate 0.2s var(--ease-out),
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.services-cta .cta-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.services-cta .cta-primary:hover {
+  translate: 0 -2px;
+  box-shadow: 0 10px 26px rgba(255, 0, 0, 0.24);
+}
+
+.services-cta .cta-secondary {
+  border: 1px solid color-mix(in srgb, var(--paper) 40%, transparent);
+  color: var(--paper);
+}
+
+.services-cta .cta-secondary:hover {
+  translate: 0 -2px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.services-cta .cta-primary .icon,
+.services-cta .cta-secondary .icon {
+  font-size: 13px;
+}
+
+:root[data-theme="dark"] .services-cta .cta-primary:hover {
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .services-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-grid,
+  .process-list {
+    grid-template-columns: 1fr;
+  }
+
+  .services-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 430px) {
+  .services-stats div {
+    padding: 16px 18px;
+  }
+
+  .service-card {
+    min-height: 0;
+    padding: 26px 22px 24px;
+  }
+
+  .service-card h2 {
+    font-size: 19px;
+  }
+
+  .process-list div {
+    padding: 20px 22px;
+  }
+
+  .pricing-note {
+    padding: 22px;
+  }
+
+  .services-cta .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .services-cta .cta-primary,
+  .services-cta .cta-secondary {
+    justify-content: center;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card .card-action .icon,
+  .services-cta .cta-primary,
+  .services-cta .cta-secondary {
+    transition: none;
+  }
+}
